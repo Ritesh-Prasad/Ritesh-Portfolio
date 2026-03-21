@@ -1,105 +1,683 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ritesh Prasad | DevOps Engineer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritesh Prasad | Cloud & DevOps Engineer</title>
+  <meta name="description" content="Portfolio of Ritesh Prasad, Cloud & DevOps Engineer specializing in AWS, Kubernetes, Terraform, and CI/CD pipelines." />
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+    }
+    .glass {
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(148,163,184,0.25);
+    }
+    .gradient-text {
+      background: linear-gradient(120deg, #22d3ee, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .gradient-border {
+      border-image: linear-gradient(120deg, #22d3ee, #a855f7) 1;
+    }
+    .section-title {
+      @apply text-2xl md:text-3xl font-semibold tracking-tight;
+    }
+    /* Custom scroll bar (desktop) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 4px;
+    }
+  </style>
 </head>
+<body class="text-slate-100 font-sans antialiased">
 
-<body class="bg-gray-950 text-white font-sans">
+  <!-- Navbar -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-slate-950/70 backdrop-blur border-b border-slate-800">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-3">
+      <div class="flex items-center gap-2">
+        <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 flex items-center justify-center text-sm font-bold">
+          RP
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="text-sm font-semibold">Ritesh Prasad</span>
+          <span class="text-xs text-slate-400">Cloud & DevOps Engineer</span>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#education" class="hover:text-cyan-400 transition-colors">Education</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1 rounded-full border border-cyan-400/60 px-4 py-1.5 text-xs md:text-sm font-medium text-cyan-300 hover:bg-cyan-400/10 transition">
+          <i data-feather="mail" class="w-4 h-4"></i><span>Hire Me</span>
+        </a>
+        <a href="Ritesh_Prasad_Cloud_DevOps_Engineer.pdf" class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-cyan-400 to-violet-500 px-4 py-1.5 text-xs md:text-sm font-medium text-slate-900 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40 transition" download>
+          <i data-feather="download" class="w-4 h-4"></i><span>Download Resume</span>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-<!-- Navbar -->
-<nav class="flex justify-between items-center p-6 bg-gray-900 sticky top-0 z-50">
-  <h1 class="text-xl font-bold">Ritesh</h1>
-  <div class="space-x-6 hidden md:block">
-    <a href="#about" class="hover:text-blue-400">About</a>
-    <a href="#skills" class="hover:text-blue-400">Skills</a>
-    <a href="#projects" class="hover:text-blue-400">Projects</a>
-    <a href="#contact" class="hover:text-blue-400">Contact</a>
-  </div>
-</nav>
+  <main class="pt-24 md:pt-28 pb-16">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-16 md:space-y-24">
 
-<!-- Hero -->
-<section class="text-center py-24 px-6" data-aos="fade-up">
-  <h1 class="text-5xl md:text-6xl font-bold mb-6">Ritesh Prasad</h1>
-  <p class="text-xl text-gray-400 mb-6">Cloud & DevOps Engineer</p>
-  <p class="text-gray-500 mb-8">Building scalable cloud infrastructure & automating deployments</p>
-  <div class="flex justify-center gap-4">
-    <a href="mailto:ritesh010996@gmail.com" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl transition">Hire Me</a>
-    <a href="https://github.com/Ritesh-Prasad" target="_blank" class="border px-6 py-3 rounded-xl hover:bg-white hover:text-black transition">GitHub</a>
-  </div>
-</section>
+      <!-- Hero -->
+      <section id="hero" class="grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
+        <div class="space-y-6">
+          <p class="inline-flex items-center gap-2 rounded-full bg-slate-900/70 border border-slate-700 px-3 py-1 text-[11px] md:text-xs text-slate-300">
+            <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Available for Cloud & DevOps opportunities
+          </p>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Cloud & DevOps Engineer<br />
+            <span class="gradient-text">AWS · Azure · GCP · Terraform · Kubernetes</span>
+          </h1>
+          <p class="text-sm md:text-base text-slate-300 max-w-xl">
+            I design and automate cloud-native infrastructure, CI/CD pipelines, and container platforms that enable reliable, fast, and secure software delivery for modern engineering teams.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#projects" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-violet-500 px-5 py-2 text-sm font-semibold text-slate-900 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/40 transition">
+              <i data-feather="play" class="w-4 h-4"></i>
+              <span>View DevOps Projects</span>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-slate-600 px-5 py-2 text-sm font-medium text-slate-200 hover:border-cyan-400 hover:text-cyan-300 transition">
+              <i data-feather="send" class="w-4 h-4"></i>
+              <span>Contact Me</span>
+            </a>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 pt-2 text-xs md:text-sm text-slate-300">
+            <div class="flex items-center gap-2">
+              <i data-feather="map-pin" class="w-4 h-4 text-cyan-400"></i>
+              <span>Hyderabad, India · Open to remote</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="mailto:ritesh010996@gmail.com" class="flex items-center gap-1 hover:text-cyan-300 transition">
+                <i data-feather="mail" class="w-4 h-4"></i><span>Email</span>
+              </a>
+              <a href="tel:+917031218049" class="flex items-center gap-1 hover:text-cyan-300 transition">
+                <i data-feather="phone" class="w-4 h-4"></i><span>Call</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="md:justify-self-end w-full max-w-md mx-auto">
+          <div class="glass rounded-3xl p-5 md:p-6 shadow-2xl shadow-cyan-500/10 border border-slate-700/70 relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-cyan-500/20 blur-3xl"></div>
+            <div class="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-violet-500/10 blur-3xl"></div>
 
-<!-- About -->
-<section id="about" class="max-w-5xl mx-auto px-6 py-16" data-aos="fade-right">
-  <h2 class="text-3xl font-semibold mb-6">About Me</h2>
-  <p class="text-gray-400 leading-relaxed">
-    I am a Cloud & DevOps Engineer specializing in CI/CD automation, Infrastructure as Code, and Kubernetes deployments.
-    I build scalable, secure, and production-ready cloud systems using AWS, Docker, Terraform, and Jenkins.
-  </p>
-</section>
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Primary Stack</p>
+                <p class="mt-1 text-sm font-medium">AWS · Kubernetes · Terraform · Jenkins</p>
+              </div>
+              <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-300 border border-emerald-500/40">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Production Ready</span>
+              </span>
+            </div>
 
-<!-- Skills -->
-<section id="skills" class="bg-gray-900 py-16 px-6" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold text-center mb-10">Tech Stack</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">AWS</div>
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">Docker</div>
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">Kubernetes</div>
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">Terraform</div>
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">Jenkins</div>
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">GitHub Actions</div>
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">Prometheus</div>
-    <div class="bg-gray-800 p-6 rounded-2xl hover:scale-105 transition">Grafana</div>
-  </div>
-</section>
+            <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-200">
+              <div class="rounded-2xl bg-slate-900/70 border border-slate-700 p-3 hover:border-cyan-400/70 hover:-translate-y-1 transition-all">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-semibold">CI/CD</span>
+                  <i data-feather="git-commit" class="w-3.5 h-3.5 text-cyan-300"></i>
+                </div>
+                <p class="text-slate-400">Jenkins, GitHub Actions, Maven, Nexus, ArgoCD</p>
+              </div>
+              <div class="rounded-2xl bg-slate-900/70 border border-slate-700 p-3 hover:border-cyan-400/70 hover:-translate-y-1 transition-all">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-semibold">Containers</span>
+                  <i data-feather="box" class="w-3.5 h-3.5 text-violet-300"></i>
+                </div>
+                <p class="text-slate-400">Docker, Kubernetes, AWS EKS, Docker Swarm</p>
+              </div>
+              <div class="rounded-2xl bg-slate-900/70 border border-slate-700 p-3 hover:border-cyan-400/70 hover:-translate-y-1 transition-all">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-semibold">IaC & Cloud</span>
+                  <i data-feather="cloud" class="w-3.5 h-3.5 text-sky-300"></i>
+                </div>
+                <p class="text-slate-400">Terraform, AWS, Azure, GCP</p>
+              </div>
+              <div class="rounded-2xl bg-slate-900/70 border border-slate-700 p-3 hover:border-cyan-400/70 hover:-translate-y-1 transition-all">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-semibold">Monitoring</span>
+                  <i data-feather="activity" class="w-3.5 h-3.5 text-emerald-300"></i>
+                </div>
+                <p class="text-slate-400">Prometheus, Grafana, CloudWatch, SonarQube, Trivy</p>
+              </div>
+            </div>
 
-<!-- Projects -->
-<section id="projects" class="max-w-6xl mx-auto px-6 py-16">
-  <h2 class="text-3xl font-semibold text-center mb-10">Projects</h2>
-  <div class="grid md:grid-cols-2 gap-8">
+            <div class="mt-4 border-t border-slate-700 pt-3 flex items-center justify-between text-[11px] text-slate-300">
+              <span>Optimized deployments by up to <span class="text-cyan-300 font-semibold">60%</span> via automated pipelines.</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in">
-      <h3 class="text-xl font-bold mb-2">CI/CD Pipeline</h3>
-      <p class="text-gray-400">Reduced deployment time by 60% using Jenkins, Docker, SonarQube, and Trivy.</p>
+      <!-- About -->
+      <section id="about" class="space-y-6" data-aos="fade-up">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">About Me</h2>
+          <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
+        </div>
+        <div class="glass rounded-3xl p-5 md:p-7">
+          <p class="text-sm md:text-base text-slate-200 leading-relaxed">
+            I am a Cloud & DevOps Engineer with hands-on experience in building CI/CD pipelines, infrastructure as code, and containerized workloads across AWS, Azure, and GCP environments.[file:1]
+            I focus on designing scalable, secure, and observable platforms using tools like Terraform, Kubernetes, Jenkins, Prometheus, and Grafana to drive faster and safer releases.[file:1]
+          </p>
+          <p class="text-sm md:text-base text-slate-200 leading-relaxed mt-4">
+            My work spans end-to-end delivery: from version control and automated builds to container orchestration, environment provisioning, and production-grade monitoring.[file:1]
+            I enjoy turning manual, error-prone processes into reliable automation that boosts developer productivity and system reliability.
+          </p>
+          <div class="mt-5 grid sm:grid-cols-3 gap-4 text-xs md:text-sm">
+            <div class="rounded-2xl bg-slate-900/70 border border-slate-700 p-4">
+              <p class="text-slate-400 mb-1">Core Focus</p>
+              <p class="font-medium">CI/CD · Cloud Infrastructure · Containers</p>
+            </div>
+            <div class="rounded-2xl bg-slate-900/70 border border-slate-700 p-4">
+              <p class="text-slate-400 mb-1">Cloud Platforms</p>
+              <p class="font-medium">AWS · Azure · GCP</p>
+            </div>
+            <div class="rounded-2xl bg-slate-900/70 border border-slate-700 p-4">
+              <p class="text-slate-400 mb-1">Location & Mode</p>
+              <p class="font-medium">Hyderabad · Hybrid/Remote</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="space-y-6" data-aos="fade-up">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">Skills & Stack</h2>
+          <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Cloud -->
+          <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
+            <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
+              <i data-feather="cloud" class="w-4 h-4 text-sky-400"></i>
+              Cloud Platforms
+            </h3>
+            <p class="text-xs text-slate-400 mb-2">Designing and operating cloud-native architectures.</p>
+            <div class="flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/50">AWS</span>
+              <span class="px-2 py-1 rounded-full bg-sky-500/5 text-sky-200 border border-sky-500/30">Azure</span>
+              <span class="px-2 py-1 rounded-full bg-sky-500/5 text-sky-200 border border-sky-500/30">GCP</span>
+              <span class="px-2 py-1 rounded-full bg-slate-900/80 text-slate-200 border border-slate-700">AWS RDS</span>
+              <span class="px-2 py-1 rounded-full bg-slate-900/80 text-slate-200 border border-slate-700">VPC · EC2 · S3 · IAM</span>
+            </div>
+          </div>
+
+          <!-- DevOps / CI-CD -->
+          <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
+            <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
+              <i data-feather="git-branch" class="w-4 h-4 text-cyan-400"></i>
+              CI/CD & DevOps
+            </h3>
+            <p class="text-xs text-slate-400 mb-2">Automating build, test, and deployment workflows.</p>
+            <div class="flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/50">Jenkins</span>
+              <span class="px-2 py-1 rounded-full bg-cyan-500/5 text-cyan-200 border border-cyan-500/30">Git</span>
+              <span class="px-2 py-1 rounded-full bg-cyan-500/5 text-cyan-200 border border-cyan-500/30">GitHub</span>
+              <span class="px-2 py-1 rounded-full bg-cyan-500/5 text-cyan-200 border border-cyan-500/30">GitHub Actions</span>
+              <span class="px-2 py-1 rounded-full bg-cyan-500/5 text-cyan-200 border border-cyan-500/30">Maven</span>
+              <span class="px-2 py-1 rounded-full bg-cyan-500/5 text-cyan-200 border border-cyan-500/30">ArgoCD</span>
+              <span class="px-2 py-1 rounded-full bg-slate-900/80 text-slate-200 border border-slate-700">Nexus</span>
+            </div>
+          </div>
+
+          <!-- Containers -->
+          <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
+            <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
+              <i data-feather="box" class="w-4 h-4 text-violet-400"></i>
+              Containers & Orchestration
+            </h3>
+            <p class="text-xs text-slate-400 mb-2">Running and scaling containerized applications.</p>
+            <div class="flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2 py-1 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/50">Docker</span>
+              <span class="px-2 py-1 rounded-full bg-violet-500/5 text-violet-200 border border-violet-500/30">Kubernetes</span>
+              <span class="px-2 py-1 rounded-full bg-violet-500/5 text-violet-200 border border-violet-500/30">AWS EKS</span>
+              <span class="px-2 py-1 rounded-full bg-violet-500/5 text-violet-200 border border-violet-500/30">Docker Swarm</span>
+            </div>
+          </div>
+
+          <!-- IaC & Config -->
+          <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
+            <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
+              <i data-feather="code" class="w-4 h-4 text-emerald-400"></i>
+              Infrastructure as Code & Config
+            </h3>
+            <p class="text-xs text-slate-400 mb-2">Declarative, versioned infrastructure and configuration.</p>
+            <div class="flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/50">Terraform</span>
+              <span class="px-2 py-1 rounded-full bg-emerald-500/5 text-emerald-200 border border-emerald-500/30">Terraform Cloud</span>
+              <span class="px-2 py-1 rounded-full bg-emerald-500/5 text-emerald-200 border border-emerald-500/30">Modules & Remote State</span>
+              <span class="px-2 py-1 rounded-full bg-slate-900/80 text-slate-200 border border-slate-700">Ansible</span>
+            </div>
+          </div>
+
+          <!-- Monitoring & Security -->
+          <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
+            <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
+              <i data-feather="shield" class="w-4 h-4 text-rose-400"></i>
+              Monitoring, Observability & Security
+            </h3>
+            <p class="text-xs text-slate-400 mb-2">Building visibility and security into delivery pipelines.</p>
+            <div class="flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2 py-1 rounded-full bg-rose-500/10 text-rose-300 border border-rose-500/50">Prometheus</span>
+              <span class="px-2 py-1 rounded-full bg-rose-500/5 text-rose-200 border border-rose-500/30">Grafana</span>
+              <span class="px-2 py-1 rounded-full bg-rose-500/5 text-rose-200 border border-rose-500/30">AWS CloudWatch</span>
+              <span class="px-2 py-1 rounded-full bg-rose-500/5 text-rose-200 border border-rose-500/30">SonarQube</span>
+              <span class="px-2 py-1 rounded-full bg-rose-500/5 text-rose-200 border border-rose-500/30">Trivy</span>
+            </div>
+          </div>
+
+          <!-- Programming & Web -->
+          <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
+            <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
+              <i data-feather="cpu" class="w-4 h-4 text-amber-400"></i>
+              Programming & Web
+            </h3>
+            <p class="text-xs text-slate-400 mb-2">Building interfaces and automation scripts.</p>
+            <div class="flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/50">Python</span>
+              <span class="px-2 py-1 rounded-full bg-amber-500/5 text-amber-200 border border-amber-500/30">JavaScript</span>
+              <span class="px-2 py-1 rounded-full bg-amber-500/5 text-amber-200 border border-amber-500/30">HTML · CSS · Bootstrap</span>
+              <span class="px-2 py-1 rounded-full bg-slate-900/80 text-slate-200 border border-slate-700">MySQL</span>
+              <span class="px-2 py-1 rounded-full bg-slate-900/80 text-slate-200 border border-slate-700">Apache · Nginx · Tomcat</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="space-y-6" data-aos="fade-up">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">Highlighted Projects</h2>
+          <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <!-- Project 1: CI/CD -->
+          <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/15 transition">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-semibold">End-to-End CI/CD Pipeline Implementation</h3>
+                <span class="text-[11px] rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/40 px-2 py-0.5">
+                  DevOps Project
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 mb-3">
+                Designed a production-style CI/CD pipeline using Jenkins to automate build, test, scan, and deployment stages for a Java-based application.[file:1]
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Built a Jenkins pipeline integrated with Git and Maven, cutting deployment time by ~60% and standardizing release workflows across environments.[file:1]</li>
+                <li>Integrated SonarQube for code quality gates and Trivy for container image vulnerability scanning, ensuring every build met quality and security thresholds.[file:1]</li>
+                <li>Containerized the application with Docker and pushed versioned images to Docker Hub for traceable rollbacks and promotions.[file:1]</li>
+                <li>Automated deployments to cloud infrastructure, minimizing manual interventions and deployment risk.</li>
+              </ul>
+              <p class="text-[11px] text-slate-400">
+                Architecture: Devs push to Git → Jenkins (Webhooks) → Maven build & tests → SonarQube & Trivy checks → Docker image to registry → Automated deployment to cloud environment.
+              </p>
+            </div>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px]">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Jenkins</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Git · Maven</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Docker · Docker Hub</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">SonarQube · Trivy</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Kubernetes -->
+          <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/15 transition">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-semibold">Kubernetes Application Deployment</h3>
+                <span class="text-[11px] rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/40 px-2 py-0.5">
+                  DevOps Project
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 mb-3">
+                Deployed containerized applications onto Kubernetes clusters, including AWS EKS, with production-oriented namespaces, RBAC, and resource policies.[file:1]
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Configured namespaces, services, Ingress, and RBAC policies to isolate workloads and enforce least-privilege access.[file:1]</li>
+                <li>Implemented multi-container pods, PersistentVolumes/PersistentVolumeClaims, and resource quotas to ensure predictable performance and cost control.[file:1]</li>
+                <li>Integrated Prometheus and Grafana for cluster and application monitoring, creating actionable dashboards and alerts.[file:1]</li>
+              </ul>
+              <p class="text-[11px] text-slate-400">
+                Architecture: Dockerized microservices → Pushed to registry → Helm/YAML deployments to EKS → Services & Ingress for routing → Prometheus & Grafana stack for metrics and visualization.
+              </p>
+            </div>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px]">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Kubernetes · EKS</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Docker</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Prometheus</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Grafana</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Terraform AWS Infra -->
+          <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/15 transition">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-semibold">AWS Infrastructure Automation with Terraform</h3>
+                <span class="text-[11px] rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 px-2 py-0.5">
+                  DevOps Project
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 mb-3">
+                Automated provisioning of a multi-tier AWS environment using Terraform to ensure consistent, repeatable deployments.[file:1]
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Provisioned VPC, subnets, EC2, S3, IAM roles/policies, and RDS instances using modular Terraform code.[file:1]</li>
+                <li>Implemented infrastructure as code with remote state and modules to improve reusability and reduce configuration drift.[file:1]</li>
+                <li>Enabled rapid spin-up/tear-down of environments, supporting faster testing and development cycles.</li>
+              </ul>
+              <p class="text-[11px] text-slate-400">
+                Architecture: Terraform modules → VPC with public/private subnets → EC2 in private subnets → RDS for data layer → S3 for storage → IAM for secure access control.
+              </p>
+            </div>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px]">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Terraform · Terraform Cloud</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">AWS: VPC · EC2 · S3 · IAM · RDS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: AWS VPC Architecture -->
+          <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-sky-500/15 transition">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-semibold">AWS VPC Network Architecture</h3>
+                <span class="text-[11px] rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/40 px-2 py-0.5">
+                  DevOps Project
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 mb-3">
+                Designed a secure VPC architecture with segmented public and private subnets to host application and database layers.[file:1]
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Created public and private subnets across availability zones, with Internet Gateway and NAT Gateway for controlled outbound access.[file:1]</li>
+                <li>Deployed EC2 instances in private subnets, exposing only necessary endpoints through load balancers and security groups.[file:1]</li>
+                <li>Hardened network paths to reduce attack surface while maintaining operational connectivity.</li>
+              </ul>
+              <p class="text-[11px] text-slate-400">
+                Architecture: VPC → Public subnets (IGW, NAT) → Private subnets (EC2, RDS) → Security groups and route tables enforcing zero-trust style access patterns.
+              </p>
+            </div>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px]">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">AWS VPC</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">IGW · NAT Gateway</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">EC2 · Security Groups</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Live Client Web Projects -->
+        <div class="mt-6">
+          <h3 class="text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
+            <i data-feather="globe" class="w-4 h-4 text-amber-400"></i>
+            Production Websites (Client Work)
+          </h3>
+          <div class="grid md:grid-cols-2 gap-5 text-xs">
+            <div class="glass rounded-2xl p-4 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <a href="https://raghavpackers.com/" target="_blank" class="font-semibold hover:text-cyan-300 transition">
+                    Raghav Packers and Movers
+                  </a>
+                  <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 text-[10px]">
+                    Live Client
+                  </span>
+                </div>
+                <p class="text-slate-300 mb-2">
+                  Built and deployed a fully responsive business website, improving brand presence and user engagement with optimized layouts and interactive forms.[file:1]
+                </p>
+                <p class="text-slate-400">
+                  Stack: HTML, CSS, JavaScript, Bootstrap, SEO optimization, fast page loads, cross-browser compatibility.[file:1]
+                </p>
+              </div>
+            </div>
+            <div class="glass rounded-2xl p-4 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <a href="https://dhmpackersandmovers.com/" target="_blank" class="font-semibold hover:text-cyan-300 transition">
+                    DHM Packers and Movers
+                  </a>
+                  <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 text-[10px]">
+                    Live Client
+                  </span>
+                </div>
+                <p class="text-slate-300 mb-2">
+                  Delivered a high-performance, mobile-friendly site with optimized assets and UX, helping the client showcase services and capture leads effectively.[file:1]
+                </p>
+                <p class="text-slate-400">
+                  Stack: HTML, CSS, JavaScript, Bootstrap, SEO optimization, performance tuning, interactive forms.[file:1]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="space-y-6" data-aos="fade-up">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">Experience</h2>
+          <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Groveus -->
+          <article class="glass rounded-2xl p-5 border border-slate-700/80">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+              <div>
+                <h3 class="text-base font-semibold">Web Development Intern</h3>
+                <p class="text-xs text-slate-400">Groveus · Sep 2025 – Dec 2025</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-[11px] text-slate-300">
+                Frontend & Web Performance
+              </span>
+            </div>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Developed responsive websites using HTML, CSS, JavaScript, and Bootstrap, significantly improving mobile usability across multiple device sizes.[file:1]</li>
+              <li>Optimized frontend assets and SEO elements, improving page load speed by ~20% and enhancing search visibility for client brands.[file:1]</li>
+              <li>Managed website content and backend data using MySQL databases across multiple pages, maintaining reliable and consistent data flows.[file:1]</li>
+            </ul>
+          </article>
+
+          <!-- CodTrees -->
+          <article class="glass rounded-2xl p-5 border border-slate-700/80">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+              <div>
+                <h3 class="text-base font-semibold">Web Development Intern</h3>
+                <p class="text-xs text-slate-400">CodTrees · Jan 2024 – Apr 2024</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-[11px] text-slate-300">
+                Frontend & Data-driven Web Apps
+              </span>
+            </div>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Developed responsive front-end interfaces using HTML, CSS, and JavaScript for dynamic web applications.[file:1]</li>
+              <li>Managed website content and backend data via MySQL, ensuring reliable data storage, retrieval, and integration with UI components.[file:1]</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="space-y-6" data-aos="fade-up">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">Education</h2>
+          <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="glass rounded-2xl p-5 border border-slate-700/80">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="text-sm font-semibold">B.Tech – Computer Science & Engineering</h3>
+              <span class="text-[11px] rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 px-2 py-0.5">
+                8.31 CGPA
+              </span>
+            </div>
+            <p class="text-xs text-slate-400 mb-1">Surendra Institute of Engineering and Management · 2021 – 2024</p>
+          </div>
+
+          <div class="glass rounded-2xl p-5 border border-slate-700/80">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="text-sm font-semibold">Diploma in Electrical Engineering</h3>
+              <span class="text-[11px] rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 px-2 py-0.5">
+                74.2%
+              </span>
+            </div>
+            <p class="text-xs text-slate-400 mb-1">Darjeeling Polytechnic Institute · 2018 – 2021</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="space-y-6" data-aos="fade-up">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">Contact</h2>
+          <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="glass rounded-2xl p-5 border border-slate-700/80">
+            <h3 class="text-sm font-semibold mb-2">Let’s build something reliable</h3>
+            <p class="text-xs text-slate-300 mb-4">
+              If you are hiring for Cloud, DevOps, or SRE roles, I would be happy to discuss how I can help you improve deployment speed, reliability, and developer experience.
+            </p>
+            <div class="space-y-3 text-xs text-slate-200">
+              <div class="flex items-center gap-3">
+                <i data-feather="mail" class="w-4 h-4 text-cyan-400"></i>
+                <a href="mailto:ritesh010996@gmail.com" class="hover:text-cyan-300 transition">ritesh010996@gmail.com</a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-feather="phone" class="w-4 h-4 text-cyan-400"></i>
+                <a href="tel:+917031218049" class="hover:text-cyan-300 transition">+91 70312 18049</a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-feather="linkedin" class="w-4 h-4 text-cyan-400"></i>
+                <a href="https://linkedin.com/in/ritesh-prasad-7666bb326" target="_blank" class="hover:text-cyan-300 transition">
+                  linkedin.com/in/ritesh-prasad-7666bb326
+                </a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-feather="github" class="w-4 h-4 text-cyan-400"></i>
+                <a href="https://github.com/Ritesh-Prasad" target="_blank" class="hover:text-cyan-300 transition">
+                  github.com/Ritesh-Prasad
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-5 flex flex-wrap gap-3">
+              <a href="mailto:ritesh010996@gmail.com?subject=Hiring%20for%20Cloud%20%26%20DevOps%20Role" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-violet-500 px-4 py-1.5 text-xs font-semibold text-slate-900 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/40 transition">
+                <i data-feather="send" class="w-3.5 h-3.5"></i>
+                <span>Hire Me</span>
+              </a>
+              <a href="Ritesh_Prasad_Cloud_DevOps_Engineer.pdf" download class="inline-flex items-center gap-2 rounded-full border border-slate-600 px-4 py-1.5 text-xs font-medium hover:border-cyan-400 hover:text-cyan-300 transition">
+                <i data-feather="download" class="w-3.5 h-3.5"></i>
+                <span>Download Resume</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact form (static) -->
+          <div class="glass rounded-2xl p-5 border border-slate-700/80">
+            <h3 class="text-sm font-semibold mb-3">Quick Message</h3>
+            <form class="space-y-3 text-xs">
+              <div class="flex flex-col gap-1">
+                <label class="text-slate-300">Name</label>
+                <input type="text" class="w-full rounded-xl bg-slate-900/80 border border-slate-700 px-3 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-slate-100" placeholder="Your name" />
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-slate-300">Email</label>
+                <input type="email" class="w-full rounded-xl bg-slate-900/80 border border-slate-700 px-3 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-slate-100" placeholder="you@example.com" />
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-slate-300">Message</label>
+                <textarea rows="4" class="w-full rounded-xl bg-slate-900/80 border border-slate-700 px-3 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-slate-100" placeholder="Share role details, timeline, or questions."></textarea>
+              </div>
+              <button type="button" class="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2 text-xs font-semibold text-slate-900 shadow-lg shadow-cyan-500/30 hover:bg-cyan-400 transition">
+                <i data-feather="send" class="w-3.5 h-3.5"></i>
+                <span>Send (configure via backend)</span>
+              </button>
+              <p class="text-[10px] text-slate-500 mt-1">
+                This is a static form. Connect it to your preferred backend service (Formspree, Netlify Forms, custom API) to receive messages.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Optional Blog/Notes -->
+      <section id="blog" class="space-y-4" data-aos="fade-up">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="text-lg font-semibold">DevOps Notes & Ideas</h2>
+          <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
+        </div>
+        <div class="glass rounded-2xl p-4 border border-dashed border-slate-700/80 text-xs text-slate-300">
+          Use this section to publish short write-ups on topics like “Designing a secure AWS VPC for microservices”, “How I structure Jenkins pipelines for faster feedback”, or “Monitoring Kubernetes with Prometheus & Grafana”. Sharing real-world patterns will help recruiters and teams see how you think about reliability, scalability, and automation.
+        </div>
+      </section>
     </div>
+  </main>
 
-    <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in">
-      <h3 class="text-xl font-bold mb-2">Kubernetes Deployment</h3>
-      <p class="text-gray-400">Deployed apps on AWS EKS with monitoring using Prometheus & Grafana.</p>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950/80 mt-10">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© <span id="year"></span> Ritesh Prasad. All rights reserved.</p>
+      <div class="flex items-center gap-3">
+        <a href="#hero" class="flex items-center gap-1 hover:text-cyan-300 transition">
+          <i data-feather="arrow-up" class="w-3.5 h-3.5"></i>
+          <span>Back to top</span>
+        </a>
+      </div>
     </div>
+  </footer>
 
-    <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in">
-      <h3 class="text-xl font-bold mb-2">Terraform Automation</h3>
-      <p class="text-gray-400">Automated infrastructure provisioning including VPC, EC2, and RDS.</p>
-    </div>
-
-    <div class="bg-gray-900 p-6 rounded-2xl hover:scale-105 transition" data-aos="zoom-in">
-      <h3 class="text-xl font-bold mb-2">Client Websites</h3>
-      <p class="text-gray-400">Delivered SEO-optimized responsive websites with performance improvements.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="text-center py-16 bg-gray-900" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-4">Let's Work Together</h2>
-  <p class="text-gray-400 mb-6">ritesh010996@gmail.com | 7031218049</p>
-  <a href="mailto:ritesh010996@gmail.com" class="bg-blue-600 px-8 py-3 rounded-xl hover:bg-blue-700 transition">Get In Touch</a>
-</section>
-
-<!-- Footer -->
-<footer class="text-center py-6 text-gray-500">
-  © 2026 Ritesh Prasad | DevOps Portfolio
-</footer>
-
-<script>
-  AOS.init({ duration: 1000 });
-</script>
-
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 80,
+      easing: 'ease-out'
+    });
+    feather.replace();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
