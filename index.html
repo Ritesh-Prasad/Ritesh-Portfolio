@@ -6,11 +6,22 @@
 <title>Ritesh Prasad | DevOps Engineer</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
 body { background:#0f172a; color:white; }
-.glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.05); }
+.glass {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.pod {
+  transition: all 0.5s ease;
+}
+.pod:hover {
+  transform: scale(1.1);
+}
 </style>
 </head>
 
@@ -24,6 +35,7 @@ body { background:#0f172a; color:white; }
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
+<a href="#dashboard">Dashboard</a>
 <a href="#contact">Contact</a>
 </div>
 </div>
@@ -33,11 +45,13 @@ body { background:#0f172a; color:white; }
 <section class="h-screen flex flex-col justify-center items-center text-center">
 <h1 class="text-5xl font-bold mb-4">Ritesh Prasad</h1>
 <h2 class="text-xl text-gray-400 mb-6">Cloud & DevOps Engineer</h2>
-<p class="max-w-xl mb-6">Designing scalable cloud systems and automating deployments.</p>
+<p class="max-w-xl mb-6">
+Designing scalable cloud systems, automating deployments, and ensuring high availability.
+</p>
 
 <div class="space-x-4">
-<button class="bg-blue-500 px-6 py-2 rounded">Hire Me</button>
-<button class="border px-6 py-2 rounded">Projects</button>
+<a href="#contact" class="bg-blue-500 px-6 py-2 rounded">Hire Me</a>
+<a href="#projects" class="border px-6 py-2 rounded">View Projects</a>
 </div>
 </section>
 
@@ -45,38 +59,91 @@ body { background:#0f172a; color:white; }
 <section id="about" class="max-w-5xl mx-auto py-20" data-aos="fade-up">
 <h2 class="text-3xl font-bold mb-6">About Me</h2>
 <p class="text-gray-400">
-Cloud & DevOps Engineer focused on automation, scalability, and reliability.
+Cloud & DevOps Engineer focused on automation, scalability, and reliability. 
+Experienced in CI/CD pipelines, Kubernetes orchestration, and Terraform-based infrastructure.
 </p>
 </section>
 
 <!-- Skills -->
 <section id="skills" class="max-w-6xl mx-auto py-20">
-<h2 class="text-3xl font-bold mb-10">Skills</h2>
+<h2 class="text-3xl font-bold mb-10 text-center">Technical Expertise</h2>
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<div class="glass p-4 rounded">AWS</div>
-<div class="glass p-4 rounded">Docker</div>
-<div class="glass p-4 rounded">Kubernetes</div>
-<div class="glass p-4 rounded">Terraform</div>
-<div class="glass p-4 rounded">Jenkins</div>
-<div class="glass p-4 rounded">Prometheus</div>
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="glass p-6 rounded-xl">☁️ AWS, Azure, GCP</div>
+<div class="glass p-6 rounded-xl">📦 Docker, Kubernetes, EKS</div>
+<div class="glass p-6 rounded-xl">🔁 Jenkins, GitHub Actions, ArgoCD</div>
+<div class="glass p-6 rounded-xl">🏗 Terraform, Terraform Cloud</div>
+<div class="glass p-6 rounded-xl">📊 Prometheus, Grafana, CloudWatch</div>
+<div class="glass p-6 rounded-xl">🔐 Trivy, SonarQube</div>
+<div class="glass p-6 rounded-xl">💻 Python, JavaScript</div>
+<div class="glass p-6 rounded-xl">🌐 Nginx, Apache, Tomcat</div>
+<div class="glass p-6 rounded-xl">🗄 MySQL, AWS RDS</div>
+
 </div>
 </section>
 
 <!-- Projects -->
 <section id="projects" class="max-w-6xl mx-auto py-20">
-<h2 class="text-3xl font-bold mb-10">Projects</h2>
+<h2 class="text-3xl font-bold mb-12 text-center">Projects</h2>
 
-<div class="grid md:grid-cols-2 gap-6">
+<div id="github-projects" class="grid md:grid-cols-2 gap-6"></div>
 
-<div class="glass p-6 rounded hover:scale-105 transition">
-<h3 class="text-xl font-bold">CI/CD Pipeline</h3>
-<p class="text-gray-400">Reduced deployment time by 60% using Jenkins.</p>
+</section>
+
+<!-- Architecture -->
+<section class="max-w-6xl mx-auto py-20">
+<h2 class="text-3xl font-bold text-center mb-12">Architecture</h2>
+
+<div class="glass p-6 rounded-xl text-center">
+GitHub → Jenkins → Build → Test → Docker → Kubernetes
+</div>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboard" class="max-w-6xl mx-auto py-20">
+<h2 class="text-3xl font-bold text-center mb-12">DevOps Dashboard</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="glass p-6 rounded-xl">
+<h3>System Uptime</h3>
+<p class="text-3xl text-green-400">99.98%</p>
 </div>
 
-<div class="glass p-6 rounded hover:scale-105 transition">
-<h3 class="text-xl font-bold">Kubernetes Deployment</h3>
-<p class="text-gray-400">Highly scalable microservices system.</p>
+<div class="glass p-6 rounded-xl">
+<canvas id="cpuChart"></canvas>
+</div>
+
+<div class="glass p-6 rounded-xl">
+<canvas id="memoryChart"></canvas>
+</div>
+
+<div class="glass p-6 rounded-xl md:col-span-2">
+<canvas id="trafficChart"></canvas>
+</div>
+
+</div>
+</section>
+
+<!-- Kubernetes -->
+<section id="k8s" class="max-w-6xl mx-auto py-20">
+<h2 class="text-3xl font-bold text-center mb-12">Kubernetes Cluster</h2>
+
+<div class="glass p-8 rounded-xl">
+
+<div class="flex flex-col items-center gap-6">
+
+<div class="px-6 py-3 bg-blue-500/20 rounded">Load Balancer</div>
+
+<div class="flex gap-6">
+
+<div class="px-6 py-3 bg-green-500/20 rounded">Service</div>
+
+<div class="flex gap-4" id="pods"></div>
+
+</div>
+
 </div>
 
 </div>
@@ -91,6 +158,83 @@ Cloud & DevOps Engineer focused on automation, scalability, and reliability.
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init();</script>
+
+<script>
+// GitHub Projects
+fetch("https://api.github.com/users/Ritesh-Prasad/repos")
+.then(res => res.json())
+.then(data => {
+  const container = document.getElementById("github-projects");
+  data.slice(0,6).forEach(repo => {
+    const div = document.createElement("div");
+    div.className="glass p-6 rounded-xl";
+    div.innerHTML=`
+      <h3 class="text-xl font-bold">${repo.name}</h3>
+      <p>${repo.description || "DevOps Project"}</p>
+      <a href="${repo.html_url}" target="_blank">View</a>
+    `;
+    container.appendChild(div);
+  });
+});
+
+// Charts
+function rand(){return Math.floor(Math.random()*80)+20;}
+
+const cpuChart=new Chart(document.getElementById("cpuChart"),{
+type:"line",
+data:{labels:[1,2,3,4,5],datasets:[{data:[rand(),rand(),rand(),rand(),rand()],borderColor:"#3b82f6"}]},
+options:{plugins:{legend:{display:false}}}
+});
+
+setInterval(()=>{
+cpuChart.data.datasets[0].data.shift();
+cpuChart.data.datasets[0].data.push(rand());
+cpuChart.update();
+},2000);
+
+// Memory
+const memoryChart=new Chart(document.getElementById("memoryChart"),{
+type:"line",
+data:{labels:[1,2,3,4,5],datasets:[{data:[rand(),rand(),rand(),rand(),rand()],borderColor:"#10b981"}]},
+options:{plugins:{legend:{display:false}}}
+});
+
+setInterval(()=>{
+memoryChart.data.datasets[0].data.shift();
+memoryChart.data.datasets[0].data.push(rand());
+memoryChart.update();
+},2500);
+
+// Traffic
+const trafficChart=new Chart(document.getElementById("trafficChart"),{
+type:"bar",
+data:{labels:["Mon","Tue","Wed","Thu","Fri"],datasets:[{data:[120,200,300,250,280],backgroundColor:"#6366f1"}]},
+options:{plugins:{legend:{display:false}}}
+});
+
+setInterval(()=>{
+trafficChart.data.datasets[0].data=trafficChart.data.datasets[0].data.map(()=>rand()+100);
+trafficChart.update();
+},3000);
+
+// Kubernetes Pods Auto Scaling
+const podContainer=document.getElementById("pods");
+
+function scalePods(){
+  const count=Math.floor(Math.random()*5)+2;
+  podContainer.innerHTML="";
+  for(let i=1;i<=count;i++){
+    const pod=document.createElement("div");
+    pod.className="pod bg-purple-500/20 px-4 py-2 rounded";
+    pod.innerText="Pod "+i;
+    podContainer.appendChild(pod);
+  }
+}
+
+scalePods();
+setInterval(scalePods,4000);
+
+</script>
 
 </body>
 </html>
