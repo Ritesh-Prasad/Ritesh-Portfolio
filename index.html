@@ -3,18 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ritesh Prasad | DevOps Engineer</title>
+<title>Ritesh Prasad | AWS DevOps Engineer</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
-body {
-  background: linear-gradient(135deg, #0f172a, #020617);
-}
+html { scroll-behavior: smooth; }
+body { background: linear-gradient(135deg, #020617, #0f172a); }
+
 .glass {
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+}
+
+.glow:hover {
+  box-shadow: 0 0 25px rgba(59,130,246,0.6);
 }
 </style>
 </head>
@@ -22,36 +26,40 @@ body {
 <body class="text-white font-sans">
 
 <!-- NAVBAR -->
-<nav class="fixed w-full z-50 bg-black/30 backdrop-blur-lg border-b border-gray-800">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<nav class="fixed w-full z-50 bg-black/40 backdrop-blur-lg border-b border-gray-800">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
 <h1 class="text-xl font-bold text-blue-400">Ritesh.dev</h1>
+
 <div class="space-x-6 hidden md:flex">
 <a href="#about" class="hover:text-blue-400">About</a>
 <a href="#skills" class="hover:text-blue-400">Skills</a>
 <a href="#projects" class="hover:text-blue-400">Projects</a>
 <a href="#architecture" class="hover:text-blue-400">Architecture</a>
+<a href="#github" class="hover:text-blue-400">GitHub</a>
 <a href="#contact" class="hover:text-blue-400">Contact</a>
 </div>
 </div>
 </nav>
 
 <!-- HERO -->
-<section class="h-screen flex items-center justify-center text-center relative">
+<section class="h-screen flex items-center justify-center text-center">
 <div data-aos="fade-up">
-<h1 class="text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+<h1 class="text-6xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4">
 Ritesh Prasad
 </h1>
+
 <p class="text-xl text-gray-300 mb-4">
-AWS Cloud & DevOps Engineer
+Cloud & DevOps Engineer | AWS | Kubernetes | Terraform | CI/CD
 </p>
-<p class="max-w-xl mx-auto text-gray-400 mb-8">
-Designing scalable cloud infrastructure, automating CI/CD pipelines, and deploying production-grade Kubernetes applications.
+
+<p class="text-gray-400 max-w-xl mx-auto mb-8">
+Designing scalable cloud infrastructure, automating CI/CD pipelines, and deploying production-grade Kubernetes systems.
 </p>
 
 <div class="space-x-4">
-<a href="#contact" class="bg-blue-500 px-6 py-3 rounded-lg hover:scale-105 transition">Hire Me</a>
-<a href="#projects" class="border px-6 py-3 rounded-lg hover:bg-gray-800 transition">Projects</a>
-<a href="#" class="bg-purple-500 px-6 py-3 rounded-lg hover:scale-105 transition">Resume</a>
+<a href="#contact" class="bg-blue-500 px-6 py-3 rounded-lg glow hover:scale-105 transition">Hire Me</a>
+<a href="#projects" class="border px-6 py-3 rounded-lg hover:bg-gray-800">Projects</a>
+<a href="resume.pdf" class="bg-purple-500 px-6 py-3 rounded-lg glow hover:scale-105">Resume</a>
 </div>
 </div>
 </section>
@@ -59,10 +67,8 @@ Designing scalable cloud infrastructure, automating CI/CD pipelines, and deployi
 <!-- ABOUT -->
 <section id="about" class="py-20 max-w-6xl mx-auto px-6">
 <h2 class="text-4xl font-bold mb-6">About Me</h2>
-<p class="text-gray-400 leading-relaxed text-lg">
-Cloud & DevOps Engineer specializing in AWS, Kubernetes, and Infrastructure as Code. 
-Built automated CI/CD pipelines reducing deployment time by 60% and deployed scalable applications on EKS. 
-Passionate about automation, system reliability, and production-grade infrastructure.
+<p class="text-gray-400 text-lg leading-relaxed">
+AWS-focused DevOps Engineer experienced in building scalable infrastructure using Terraform, deploying microservices on Kubernetes (EKS), and automating CI/CD pipelines with Jenkins. Reduced deployment time by 60% and implemented secure, production-grade systems.
 </p>
 </section>
 
@@ -73,109 +79,124 @@ Passionate about automation, system reliability, and production-grade infrastruc
 
 <div class="grid md:grid-cols-3 gap-8">
 
-<div class="glass p-6 rounded-2xl hover:scale-105 transition">
-<h3 class="text-blue-400 text-xl mb-3">Cloud</h3>
-<p>AWS, Azure, GCP</p>
+<div class="glass p-6 rounded-2xl glow hover:scale-105">
+<h3 class="text-blue-400 text-xl mb-2">Cloud</h3>
+<p>AWS (EKS, EC2, VPC, S3, IAM, RDS)</p>
 </div>
 
-<div class="glass p-6 rounded-2xl hover:scale-105 transition">
-<h3 class="text-blue-400 text-xl mb-3">DevOps</h3>
-<p>Docker, Kubernetes, Terraform, Ansible</p>
+<div class="glass p-6 rounded-2xl glow hover:scale-105">
+<h3 class="text-blue-400 text-xl mb-2">DevOps</h3>
+<p>Docker, Kubernetes, Terraform</p>
 </div>
 
-<div class="glass p-6 rounded-2xl hover:scale-105 transition">
-<h3 class="text-blue-400 text-xl mb-3">CI/CD</h3>
+<div class="glass p-6 rounded-2xl glow hover:scale-105">
+<h3 class="text-blue-400 text-xl mb-2">CI/CD</h3>
 <p>Jenkins, GitHub Actions, ArgoCD</p>
 </div>
 
-<div class="glass p-6 rounded-2xl hover:scale-105 transition">
-<h3 class="text-blue-400 text-xl mb-3">Monitoring</h3>
-<p>Prometheus, Grafana</p>
-</div>
-
-<div class="glass p-6 rounded-2xl hover:scale-105 transition">
-<h3 class="text-blue-400 text-xl mb-3">Security</h3>
-<p>Trivy, SonarQube</p>
-</div>
-
-<div class="glass p-6 rounded-2xl hover:scale-105 transition">
-<h3 class="text-blue-400 text-xl mb-3">Programming</h3>
-<p>Python, JavaScript</p>
-</div>
-
 </div>
 </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- CASE STUDIES -->
 <section id="projects" class="py-20 max-w-7xl mx-auto px-6">
-<h2 class="text-4xl font-bold mb-12">Featured Projects</h2>
+<h2 class="text-4xl font-bold mb-12">Case Studies</h2>
 
 <div class="grid md:grid-cols-2 gap-10">
 
-<div class="glass p-8 rounded-2xl hover:scale-105 transition">
-<h3 class="text-2xl font-bold mb-3">CI/CD Pipeline Automation</h3>
-<p class="text-gray-400 mb-4">
-Built Jenkins pipeline integrating Git, Maven, SonarQube, and Docker.
-</p>
-<p class="text-blue-400">Impact: Reduced deployment time by 60%</p>
+<div class="glass p-8 rounded-2xl glow hover:scale-105">
+<h3 class="text-2xl font-bold text-blue-400">CI/CD Pipeline</h3>
+<p><strong>Problem:</strong> Manual deployment delays</p>
+<p><strong>Solution:</strong> Jenkins automation pipeline</p>
+<ul class="list-disc ml-6 text-gray-400">
+<li>GitHub → Jenkins → Maven</li>
+<li>SonarQube + Trivy scanning</li>
+<li>Docker → Deployment</li>
+</ul>
+<p class="text-green-400 font-bold">Impact: 60% faster deployments</p>
 </div>
 
-<div class="glass p-8 rounded-2xl hover:scale-105 transition">
-<h3 class="text-2xl font-bold mb-3">Kubernetes on AWS EKS</h3>
-<p class="text-gray-400 mb-4">
-Deployed scalable applications with RBAC, monitoring & storage.
-</p>
-<p class="text-blue-400">Impact: High availability & scalability</p>
+<div class="glass p-8 rounded-2xl glow hover:scale-105">
+<h3 class="text-2xl font-bold text-blue-400">Kubernetes (EKS)</h3>
+<p><strong>Solution:</strong> Scalable microservices system</p>
+<ul class="list-disc ml-6 text-gray-400">
+<li>RBAC + Namespaces</li>
+<li>PV/PVC storage</li>
+<li>Monitoring setup</li>
+</ul>
+<p class="text-green-400 font-bold">Impact: High availability</p>
 </div>
 
 </div>
 </section>
 
-<!-- DEVOPS ARCHITECTURE -->
-<section id="architecture" class="py-20 bg-black/40">
-<div class="max-w-6xl mx-auto px-6 text-center">
-<h2 class="text-4xl font-bold mb-10">DevOps Architecture</h2>
+<!-- ARCHITECTURE VISUAL -->
+<section id="architecture" class="py-24 text-center">
+<h2 class="text-4xl font-bold mb-16">DevOps Architecture</h2>
 
-<div class="grid md:grid-cols-3 gap-8">
+<div class="flex flex-wrap justify-center items-center gap-4 text-sm">
 
-<div class="glass p-6 rounded-xl">
-<h3 class="text-blue-400 text-xl mb-2">CI/CD Pipeline</h3>
-<p>Git → Jenkins → Build → Test → Docker → Deploy</p>
-</div>
-
-<div class="glass p-6 rounded-xl">
-<h3 class="text-blue-400 text-xl mb-2">Kubernetes</h3>
-<p>Pods → Services → Ingress → Monitoring</p>
-</div>
-
-<div class="glass p-6 rounded-xl">
-<h3 class="text-blue-400 text-xl mb-2">AWS Infra</h3>
-<p>VPC → EC2 → EKS → S3 → RDS</p>
-</div>
+<div class="p-4 bg-gray-800 rounded-xl">Dev</div>
+<span>➡️</span>
+<div class="p-4 bg-gray-800 rounded-xl">GitHub</div>
+<span>➡️</span>
+<div class="p-4 bg-blue-600 rounded-xl">Jenkins</div>
+<span>➡️</span>
+<div class="p-4 bg-gray-800 rounded-xl">Build</div>
+<span>➡️</span>
+<div class="p-4 bg-green-600 rounded-xl">Docker</div>
+<span>➡️</span>
+<div class="p-4 bg-purple-600 rounded-xl">Kubernetes (EKS)</div>
 
 </div>
-</div>
+</section>
+
+<!-- GITHUB -->
+<section id="github" class="py-20 max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-bold mb-10">GitHub Projects</h2>
+<div id="github-projects" class="grid md:grid-cols-3 gap-8"></div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="py-20 text-center">
-<h2 class="text-4xl font-bold mb-6">Let’s Work Together</h2>
-<p class="text-gray-400 mb-4">ritesh010996@gmail.com</p>
+<h2 class="text-4xl font-bold mb-6">Contact</h2>
+<p class="text-gray-400">ritesh010996@gmail.com</p>
 
-<div class="space-x-4">
-<a href="#" class="bg-blue-500 px-6 py-3 rounded-lg hover:scale-105">Hire Me</a>
-<a href="#" class="border px-6 py-3 rounded-lg hover:bg-gray-800">GitHub</a>
+<div class="space-x-4 mt-4">
+<a href="#" class="bg-blue-500 px-6 py-3 rounded-lg glow hover:scale-105">Hire Me</a>
+<a href="https://github.com/Ritesh-Prasad" class="border px-6 py-3 rounded-lg hover:bg-gray-800">GitHub</a>
 </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="text-center py-6 text-gray-500">
 © 2026 Ritesh Prasad | AWS DevOps Engineer
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init({ duration: 1000 });</script>
+
+<script>
+AOS.init({ duration: 1000 });
+
+async function loadGitHubRepos() {
+  const res = await fetch("https://api.github.com/users/Ritesh-Prasad/repos");
+  const data = await res.json();
+  const container = document.getElementById("github-projects");
+
+  data.slice(0,6).forEach(repo => {
+    const div = document.createElement("div");
+    div.className = "bg-gray-800 p-6 rounded-xl hover:scale-105";
+
+    div.innerHTML = `
+      <h3 class="text-xl font-bold">${repo.name}</h3>
+      <p class="text-gray-400">${repo.description || "DevOps Project"}</p>
+      <a href="${repo.html_url}" target="_blank" class="text-blue-400">View Repo →</a>
+    `;
+    container.appendChild(div);
+  });
+}
+
+loadGitHubRepos();
+</script>
 
 </body>
 </html>
