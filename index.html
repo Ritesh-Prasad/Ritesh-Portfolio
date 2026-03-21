@@ -7,23 +7,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     animation: {
-                        'fade-in': 'fadeIn 1s ease-in-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'bounce-slow': 'bounce 4s infinite',
+                        'sparkle': 'sparkle 3s ease-in-out infinite',
                     },
                     keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
                         },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(50px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(147, 51, 234, 0.6)' }
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        },
+                        sparkle: {
+                            '0%, 100%': { opacity: 0.4, transform: 'scale(1)' },
+                            '50%': { opacity: 1, transform: 'scale(1.1)' }
                         }
                     }
                 }
@@ -31,107 +43,230 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); }
-        .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
-        .sticky-nav { position: sticky; top: 0; z-index: 50; }
-        .nav-link-hover { @apply relative; }
-        .nav-link-hover::after { content: ''; @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 ease-out; }
-        .nav-link-hover:hover::after { @apply w-full; }
-        .hero-glow { box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); }
-        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .card-hover:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
-        .scroll-indicator { background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg { 
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 30%, #16213e 70%, #0f0f23 100%);
+            position: relative;
+        }
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120,219,255,0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .glass-premium { 
+            backdrop-filter: blur(20px); 
+            background: rgba(255,255,255,0.08); 
+            border: 1px solid rgba(255,255,255,0.15); 
+            box-shadow: 0 25px 45px -10px rgba(0,0,0,0.5),
+                        0 0 0 1px rgba(255,255,255,0.05);
+        }
+        
+        .hero-glow { 
+            box-shadow: 0 0 60px rgba(59, 130, 246, 0.4), 
+                        0 0 120px rgba(147, 51, 234, 0.3),
+                        inset 0 0 40px rgba(255,255,255,0.05);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        .card-premium { 
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+        .card-premium:hover::before { left: 100%; }
+        .card-premium:hover { 
+            transform: translateY(-15px) scale(1.03) rotateX(5deg); 
+            box-shadow: 0 35px 80px -15px rgba(0,0,0,0.6),
+                        0 0 0 1px rgba(255,255,255,0.1);
+        }
+        
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+            z-index: 1;
+        }
+        .btn-premium:hover::before { left: 100%; }
+        
+        .floating-particles {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: rgba(59, 130, 246, 0.6);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+        .floating-particles:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-particles:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .floating-particles:nth-child(3) { left: 80%; animation-delay: 4s; }
+        .floating-particles:nth-child(4) { left: 90%; animation-delay: 1s; }
+        
+        .nav-link-hover { position: relative; }
+        .nav-link-hover::after {
+            content: ''; 
+            position: absolute; bottom: -4px; left: 0; 
+            width: 0; height: 2px; 
+            background: linear-gradient(90deg, #3b82f6, #9333ea);
+            transition: width 0.4s ease-out;
+        }
+        .nav-link-hover:hover::after { width: 100%; }
+        
+        .metric-glow { 
+            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(147,51,234,0.2));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-glow { animation: none; }
+            .card-premium:hover { transform: translateY(-10px) scale(1.02); }
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 text-white overflow-x-hidden">
+<body class="gradient-bg text-white overflow-x-hidden relative">
     
+    <!-- Floating Particles -->
+    <div class="floating-particles" style="top: 20%; animation-duration: 10s;"></div>
+    <div class="floating-particles" style="top: 50%; animation-duration: 12s;"></div>
+    <div class="floating-particles" style="top: 80%; animation-duration: 9s;"></div>
+    <div class="floating-particles" style="top: 30%; animation-duration: 11s;"></div>
+
     <!-- Navigation -->
-    <nav class="sticky-nav glass backdrop-blur-xl border-b border-slate-800/50 px-6 py-4 sticky-nav">
+    <nav class="glass-premium backdrop-blur-xl px-6 py-5 fixed w-full z-50 transition-all duration-300" style="top: 0;">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">RP</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link-hover font-medium hover:text-blue-400 transition-colors">Home</a>
-                <a href="#about" class="nav-link-hover font-medium hover:text-blue-400 transition-colors">About</a>
-                <a href="#skills" class="nav-link-hover font-medium hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#projects" class="nav-link-hover font-medium hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#experience" class="nav-link-hover font-medium hover:text-blue-400 transition-colors">Experience</a>
-                <a href="#contact" class="nav-link-hover font-medium hover:text-blue-400 transition-colors">Contact</a>
+            <a href="#home" class="text-3xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text">
+                <span class="animate-pulse-slow">RP</span>
+            </a>
+            <div class="hidden lg:flex space-x-10">
+                <a href="#home" class="nav-link-hover text-lg font-semibold hover:text-blue-400 transition-all duration-300 py-2">Home</a>
+                <a href="#about" class="nav-link-hover text-lg font-semibold hover:text-purple-400 transition-all duration-300 py-2">About</a>
+                <a href="#skills" class="nav-link-hover text-lg font-semibold hover:text-emerald-400 transition-all duration-300 py-2">Skills</a>
+                <a href="#projects" class="nav-link-hover text-lg font-semibold hover:text-orange-400 transition-all duration-300 py-2">Projects</a>
+                <a href="#experience" class="nav-link-hover text-lg font-semibold hover:text-blue-400 transition-all duration-300 py-2">Experience</a>
+                <a href="#contact" class="nav-link-hover text-lg font-semibold hover:text-pink-400 transition-all duration-300 py-2">Contact</a>
             </div>
-            <button class="md:hidden">
-                <i class="fas fa-bars text-xl"></i>
+            <button class="lg:hidden p-2">
+                <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20 gradient-bg">
-        <div class="max-w-7xl mx-auto text-center" data-aos="fade-up">
-            <div class="hero-glow inline-block p-8 rounded-3xl glass mb-8">
-                <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
-                    Ritesh Prasad
-                </h1>
-                <p class="text-xl md:text-2xl font-semibold text-slate-300 mb-8 max-w-2xl mx-auto">
-                    Cloud & DevOps Engineer | Automating Scalable Infrastructure at Enterprise Scale
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 relative z-10">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="hero-glow inline-block p-12 lg:p-16 rounded-3xl glass-premium mb-12 animate-float" data-aos="fade-down">
+                <div class="shimmer-bg mb-8 py-4 px-8 rounded-2xl inline-block" style="
+                    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+                    background-size: 200% 100%;
+                ">
+                    <h1 class="text-5xl lg:text-7xl xl:text-8xl font-black bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text leading-tight">
+                        Ritesh Prasad
+                    </h1>
+                </div>
+                <p class="text-xl lg:text-3xl font-semibold text-slate-200 mb-12 max-w-3xl mx-auto leading-relaxed animate-pulse-slow">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-black">Cloud & DevOps Engineer</span>
+                    <br>
+                    <span class="text-slate-300">Mastering Scalable Infrastructure Automation</span>
                 </p>
             </div>
-            <p class="text-lg md:text-xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Building production-grade CI/CD pipelines, Kubernetes clusters & Terraform IaC that deliver 99.9% uptime and 60% faster deployments.
+            
+            <p class="text-lg lg:text-xl text-slate-300 mb-16 max-w-4xl mx-auto leading-relaxed opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Building <strong>production-grade CI/CD pipelines</strong>, <strong>Kubernetes EKS clusters</strong> & <strong>Terraform IaC</strong> 
+                delivering <span class="text-blue-400 font-bold">99.9% uptime</span> & <span class="text-emerald-400 font-bold">60% faster deployments</span>
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="#contact" class="glass px-10 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105">
-                    <i class="fas fa-rocket mr-2"></i>Hire Me
+            
+            <div class="flex flex-col lg:flex-row gap-8 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="btn-premium glass-premium px-12 py-6 lg:px-16 lg:py-7 rounded-3xl font-bold text-xl lg:text-2xl border-2 border-blue-500/30 hover:border-blue-400/70 shadow-2xl hover:shadow-blue-500/30 hover:scale-105 transition-all duration-500 backdrop-blur-xl relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center">
+                        <i class="fas fa-rocket mr-3 animate-bounce-slow"></i>
+                        Hire Me
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 scale-0 group-hover:scale-100 transition-transform duration-700 origin-center"></div>
                 </a>
-                <a href="#projects" class="glass px-10 py-4 rounded-2xl font-semibold text-lg border border-white/20 hover:bg-white/10 transition-all duration-300 backdrop-blur-xl hover:scale-105">
-                    <i class="fab fa-github mr-2"></i>View Projects
+                <a href="#projects" class="glass-premium px-12 py-6 lg:px-16 lg:py-7 rounded-3xl font-bold text-xl lg:text-2xl border border-white/20 hover:border-white/40 hover:bg-white/10 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 backdrop-blur-xl flex items-center group">
+                    <i class="fab fa-github mr-3 text-xl group-hover:animate-spin"></i>
+                    Live Projects
                 </a>
             </div>
         </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator w-6 h-12 border-2 border-slate-400/30 rounded-full animate-pulse">
-            <div class="w-1 h-3 bg-slate-400/50 rounded-full mx-auto mt-2 animate-bounce"></div>
+        
+        <!-- Enhanced Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-8 h-16 border-2 border-slate-400/40 rounded-full flex items-start justify-center p-2 animate-pulse">
+            <div class="w-2 h-4 bg-gradient-to-b from-slate-400 to-transparent rounded-full mt-2 animate-bounce-slow" style="animation-delay: 0.5s;"></div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-32 px-6 bg-slate-900/50">
+    <section id="about" class="py-40 px-6 relative z-10" data-aos="fade-up">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24" data-aos="fade-up">
-                <h2 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">About Me</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto"></div>
+            <div class="text-center mb-28" data-aos="fade-down">
+                <h2 class="text-6xl lg:text-7xl font-black bg-gradient-to-r from-blue-400 via-purple-500 to-emerald-400 bg-clip-text text-transparent mb-8 animate-float">
+                    About Me
+                </h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full shadow-lg"></div>
             </div>
-            <div class="grid md:grid-cols-2 gap-16 items-center" data-aos="fade-up">
-                <div>
-                    <p class="text-xl text-slate-300 leading-relaxed mb-8">
-                        Production-ready Cloud & DevOps Engineer who transforms complex infrastructure challenges into automated, scalable solutions. 
-                        I've deployed enterprise-grade CI/CD pipelines that cut deployment times by <strong>60%</strong> and engineered Kubernetes clusters with comprehensive monitoring.
+            
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div data-aos="fade-right" data-aos-delay="200">
+                    <p class="text-xl lg:text-2xl text-slate-200 leading-relaxed mb-10 opacity-90">
+                        <strong class="text-3xl text-blue-400">Production-ready DevOps Engineer</strong> who transforms infrastructure chaos into 
+                        <strong class="text-emerald-400">automated, scalable systems</strong>. Deployed enterprise CI/CD pipelines cutting deployment times by 
+                        <strong class="text-orange-400">60%</strong> while maintaining <strong class="text-purple-400">99.9% uptime</strong>.
                     </p>
-                    <p class="text-lg text-slate-400 mb-8">
-                        Expert in Terraform IaC, AWS EKS, Docker containerization, and production monitoring with Prometheus + Grafana. Passionate about building systems that scale effortlessly and maintain 99.9% uptime.
+                    <p class="text-lg text-slate-300 mb-12 leading-relaxed">
+                        Expert in <strong>AWS EKS, Terraform IaC, Docker containerization</strong> & production monitoring stacks. 
+                        Passionate about building infrastructure that scales effortlessly under peak loads.
                     </p>
                     <div class="flex flex-wrap gap-6">
-                        <span class="glass px-6 py-3 rounded-full text-sm font-semibold bg-blue-500/10 border border-blue-500/30">AWS Certified</span>
-                        <span class="glass px-6 py-3 rounded-full text-sm font-semibold bg-purple-500/10 border border-purple-500/30">Terraform Expert</span>
-                        <span class="glass px-6 py-3 rounded-full text-sm font-semibold bg-emerald-500/10 border border-emerald-500/30">Kubernetes</span>
+                        <span class="glass-premium px-8 py-4 rounded-2xl text-lg font-bold bg-blue-500/15 border border-blue-500/40 hover:bg-blue-500/25 transition-all duration-300 animate-pulse-slow">
+                            AWS Certified
+                        </span>
+                        <span class="glass-premium px-8 py-4 rounded-2xl text-lg font-bold bg-purple-500/15 border border-purple-500/40 hover:bg-purple-500/25 transition-all duration-300 animate-pulse-slow">
+                            Terraform Pro
+                        </span>
+                        <span class="glass-premium px-8 py-4 rounded-2xl text-lg font-bold bg-emerald-500/15 border border-emerald-500/40 hover:bg-emerald-500/25 transition-all duration-300 animate-pulse-slow">
+                            Kubernetes
+                        </span>
                     </div>
                 </div>
-                <div class="glass p-12 rounded-3xl backdrop-blur-xl border border-white/10" data-aos="fade-left" data-aos-delay="200">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center p-6">
-                            <div class="text-3xl font-bold text-blue-400 mb-2">60%</div>
-                            <div class="text-sm text-slate-400">Faster Deployments</div>
+                
+                <div class="metric-glow p-12 lg:p-16 rounded-3xl glass-premium animate-float" data-aos="fade-left" data-aos-delay="400">
+                    <div class="grid grid-cols-2 lg:grid-cols-2 gap-8">
+                        <div class="text-center group cursor-pointer p-8 rounded-2xl hover:bg-white/10 transition-all duration-500">
+                            <div class="text-4xl lg:text-5xl font-black text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-500">60%</div>
+                            <div class="text-lg font-semibold text-slate-300 group-hover:text-white">Faster Deployments</div>
                         </div>
-                        <div class="text-center p-6">
-                            <div class="text-3xl font-bold text-purple-400 mb-2">50+</div>
-                            <div class="text-sm text-slate-400">Terraform Modules</div>
+                        <div class="text-center group cursor-pointer p-8 rounded-2xl hover:bg-white/10 transition-all duration-500">
+                            <div class="text-4xl lg:text-5xl font-black text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-500">50+</div>
+                            <div class="text-lg font-semibold text-slate-300 group-hover:text-white">Terraform Modules</div>
                         </div>
-                        <div class="text-center p-6">
-                            <div class="text-3xl font-bold text-emerald-400 mb-2">99.9%</div>
-                            <div class="text-sm text-slate-400">Uptime Achieved</div>
+                        <div class="text-center group cursor-pointer p-8 rounded-2xl hover:bg-white/10 transition-all duration-500">
+                            <div class="text-4xl lg:text-5xl font-black text-emerald-400 mb-4 group-hover:scale-110 transition-transform duration-500">99.9%</div>
+                            <div class="text-lg font-semibold text-slate-300 group-hover:text-white">Production Uptime</div>
                         </div>
-                        <div class="text-center p-6">
-                            <div class="text-3xl font-bold text-orange-400 mb-2">10+</div>
-                            <div class="text-sm text-slate-400">Production Projects</div>
+                        <div class="text-center group cursor-pointer p-8 rounded-2xl hover:bg-white/10 transition-all duration-500">
+                            <div class="text-4xl lg:text-5xl font-black text-orange-400 mb-4 group-hover:scale-110 transition-transform duration-500">10+</div>
+                            <div class="text-lg font-semibold text-slate-300 group-hover:text-white">Live Projects</div>
                         </div>
                     </div>
                 </div>
@@ -139,261 +274,252 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-32 px-6 gradient-bg">
+    <!-- Skills Section - Enhanced -->
+    <section id="skills" class="py-40 px-6 relative z-10" style="background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(22,33,62,0.8) 100%);">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24" data-aos="fade-up">
-                <h2 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">Tech Stack</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto"></div>
+            <div class="text-center mb-28" data-aos="fade-up">
+                <h2 class="text-6xl lg:text-7xl font-black bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-500 bg-clip-text text-transparent mb-8 animate-float">
+                    Tech Stack
+                </h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto rounded-full shadow-lg"></div>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
                 <!-- Cloud Platforms -->
-                <div class="glass p-8 rounded-3xl card-hover backdrop-blur-xl border border-white/10">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
-                            <i class="fas fa-cloud text-xl"></i>
+                <div class="glass-premium p-10 lg:p-12 rounded-3xl card-premium group backdrop-blur-xl hover:bg-white/5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mr-6 lg:mr-8 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-spin-slow">
+                            <i class="fas fa-cloud text-2xl lg:text-3xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold">Cloud Platforms</h3>
+                        <h3 class="text-2xl lg:text-3xl font-black group-hover:text-blue-400 transition-all duration-500">Cloud</h3>
                     </div>
-                    <div class="space-y-3">
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">AWS (EKS, VPC, RDS)</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Azure</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">GCP</span>
+                    <div class="space-y-4">
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">AWS EKS • VPC • RDS</span>
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">Azure AKS</span>
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">GCP GKE</span>
                     </div>
                 </div>
 
                 <!-- Containerization -->
-                <div class="glass p-8 rounded-3xl card-hover backdrop-blur-xl border border-white/10">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mr-4">
-                            <i class="fab fa-docker text-xl"></i>
+                <div class="glass-premium p-10 lg:p-12 rounded-3xl card-premium group backdrop-blur-xl hover:bg-white/5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl flex items-center justify-center mr-6 lg:mr-8 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-pulse-slow">
+                            <i class="fab fa-docker text-2xl lg:text-3xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold">Containerization</h3>
+                        <h3 class="text-2xl lg:text-3xl font-black group-hover:text-emerald-400 transition-all duration-500">Containers</h3>
                     </div>
-                    <div class="space-y-3">
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Docker & Docker Swarm</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Kubernetes (EKS)</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Helm Charts</span>
+                    <div class="space-y-4">
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">Docker Swarm</span>
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">Kubernetes EKS</span>
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">Helm Charts</span>
                     </div>
                 </div>
 
-                <!-- IaC & Automation -->
-                <div class="glass p-8 rounded-3xl card-hover backdrop-blur-xl border border-white/10">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mr-4">
-                            <i class="fas fa-cogs text-xl"></i>
+                <!-- IaC & CI/CD -->
+                <div class="glass-premium p-10 lg:p-12 rounded-3xl card-premium group backdrop-blur-xl hover:bg-white/5 lg:col-span-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl flex items-center justify-center mr-6 lg:mr-8 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-bounce-slow">
+                            <i class="fas fa-cogs text-2xl lg:text-3xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold">IaC & Automation</h3>
+                        <h3 class="text-2xl lg:text-3xl font-black group-hover:text-orange-400 transition-all duration-500">Automation</h3>
                     </div>
-                    <div class="space-y-3">
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Terraform Cloud</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Ansible</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">GitOps (ArgoCD)</span>
-                    </div>
-                </div>
-
-                <!-- CI/CD -->
-                <div class="glass p-8 rounded-3xl card-hover backdrop-blur-xl border border-white/10">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
-                            <i class="fas fa-sync-alt text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold">CI/CD Pipelines</h3>
-                    </div>
-                    <div class="space-y-3">
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Jenkins</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">GitHub Actions</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Maven & Nexus</span>
-                    </div>
-                </div>
-
-                <!-- Monitoring -->
-                <div class="glass p-8 rounded-3xl card-hover backdrop-blur-xl border border-white/10">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mr-4">
-                            <i class="fas fa-chart-line text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold">Monitoring</h3>
-                    </div>
-                    <div class="space-y-3">
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Prometheus</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Grafana</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">CloudWatch</span>
-                    </div>
-                </div>
-
-                <!-- Programming -->
-                <div class="glass p-8 rounded-3xl card-hover backdrop-blur-xl border border-white/10">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mr-4">
-                            <i class="fas fa-code text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold">Programming</h3>
-                    </div>
-                    <div class="space-y-3">
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Python</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">JavaScript</span>
-                        <span class="block px-4 py-2 bg-white/10 rounded-xl text-sm font-medium">Bash Scripting</span>
+                    <div class="grid grid-cols-2 gap-4">
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">Terraform Cloud</span>
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">Jenkins Pipelines</span>
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">GitHub Actions</span>
+                        <span class="block px-6 lg:px-8 py-3 bg-white/10 hover:bg-white/20 rounded-2xl text-lg lg:text-xl font-semibold transition-all duration-300 group-hover:ml-4">ArgoCD GitOps</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-32 px-6 bg-slate-900/50">
+    <!-- Projects Section - Ultra Premium -->
+    <section id="projects" class="py-40 px-6 relative z-10" data-aos="fade-up">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24" data-aos="fade-up">
-                <h2 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">Featured Projects</h2>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Production-grade infrastructure & automation projects that demonstrate enterprise-scale DevOps expertise.</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mt-4"></div>
+            <div class="text-center mb-28" data-aos="fade-down">
+                <h2 class="text-6xl lg:text-7xl font-black bg-gradient-to-r from-orange-400 via-pink-400 to-purple-500 bg-clip-text text-transparent mb-8 animate-float">
+                    Production Projects
+                </h2>
+                <p class="text-2xl text-slate-300 max-w-3xl mx-auto mb-12 opacity-90">Enterprise-grade infrastructure showcasing real-world DevOps mastery</p>
+                <div class="w-32 h-1 bg-gradient-to-r from-orange-400 to-purple-500 mx-auto rounded-full shadow-lg"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="100">
-                <!-- Project 1 -->
-                <div class="glass p-10 rounded-3xl card-hover backdrop-blur-xl border border-white/10 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
-                        <i class="fas fa-sync-alt text-5xl text-white/30 group-hover:text-blue-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-4 group-hover:text-blue-400 transition-colors">End-to-End CI/CD Pipeline</h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed">
-                        Engineered complete Jenkins CI/CD pipeline integrated with Git, Maven, SonarQube & Trivy. Containerized apps with Docker and automated cloud deployments.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30">Jenkins</span>
-                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm font-medium border border-emerald-500/30">Docker</span>
-                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm font-medium border border-purple-500/30">SonarQube</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-emerald-400">60%</div>
-                            <div class="text-sm text-slate-400">Faster Deployments</div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Project 1 - Enhanced -->
+                <div class="glass-premium p-12 rounded-4xl card-premium group backdrop-blur-xl h-[520px] overflow-hidden relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
+                    <div class="relative h-64 lg:h-72 bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-indigo-500/20 rounded-3xl mb-10 group-hover:scale-110 transition-all duration-1000 flex items-center justify-center overflow-hidden">
+                        <div class="relative z-10">
+                            <i class="fas fa-sync-alt text-7xl lg:text-8xl text-white/20 group-hover:text-blue-400 transition-all duration-700 animate-spin-slow"></i>
                         </div>
-                        <a href="#" class="glass px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all backdrop-blur-xl">
-                            <i class="fab fa-github mr-2"></i>View Code
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 transform -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                    </div>
+                    
+                    <h3 class="text-3xl lg:text-4xl font-black mb-6 group-hover:text-blue-400 transition-all duration-700 leading-tight">CI/CD Pipeline Mastery</h3>
+                    <p class="text-slate-300 mb-10 leading-relaxed text-lg opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                        Complete Jenkins pipeline with SonarQube, Trivy security scanning & Docker automation. Enterprise-grade deployment acceleration.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-12">
+                        <span class="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-2xl text-sm lg:text-base font-bold border border-blue-500/40 group-hover:bg-blue-500/30 transition-all duration-300">Jenkins</span>
+                        <span class="px-4 py-2 bg-emerald-500/20 text-emerald-300 rounded-2xl text-sm lg:text-base font-bold border border-emerald-500/40 group-hover:bg-emerald-500/30 transition-all duration-300">Docker</span>
+                        <span class="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-2xl text-sm lg:text-base font-bold border border-purple-500/40 group-hover:bg-purple-500/30 transition-all duration-300">SonarQube</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-white/10">
+                        <div class="text-3xl lg:text-4xl font-black text-emerald-400 animate-pulse-slow">60%</div>
+                        <a href="#" class="glass-premium px-8 py-4 rounded-2xl font-bold hover:bg-white/20 backdrop-blur-xl transition-all duration-500 flex items-center group-hover:scale-105">
+                            <i class="fab fa-github mr-3 text-xl"></i>View Code
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="glass p-10 rounded-3xl card-hover backdrop-blur-xl border border-white/10 group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
-                        <i class="fas fa-layer-group text-5xl text-white/30 group-hover:text-emerald-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-4 group-hover:text-emerald-400 transition-colors">Kubernetes EKS Deployment</h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed">
-                        Deployed production Kubernetes clusters on AWS EKS with namespaces, RBAC, multi-container pods, PV/PVC and comprehensive Prometheus monitoring.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm font-medium border border-emerald-500/30">Kubernetes</span>
-                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30">AWS EKS</span>
-                        <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium border border-indigo-500/30">Prometheus</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-emerald-400">99.9%</div>
-                            <div class="text-sm text-slate-400">Cluster Uptime</div>
+                <!-- Project 2 - Enhanced -->
+                <div class="glass-premium p-12 rounded-4xl card-premium group backdrop-blur-xl h-[520px] overflow-hidden relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-500/10"></div>
+                    <div class="relative h-64 lg:h-72 bg-gradient-to-br from-emerald-500/30 via-teal-500/20 to-cyan-500/20 rounded-3xl mb-10 group-hover:scale-110 transition-all duration-1000 flex items-center justify-center overflow-hidden">
+                        <div class="relative z-10">
+                            <i class="fas fa-layer-group text-7xl lg:text-8xl text-white/20 group-hover:text-emerald-400 transition-all duration-700 animate-pulse-slow"></i>
                         </div>
-                        <a href="#" class="glass px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all backdrop-blur-xl">
-                            <i class="fab fa-github mr-2"></i>View Code
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 transform -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                    </div>
+                    
+                    <h3 class="text-3xl lg:text-4xl font-black mb-6 group-hover:text-emerald-400 transition-all duration-700 leading-tight">Kubernetes EKS Cluster</h3>
+                    <p class="text-slate-300 mb-10 leading-relaxed text-lg opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                        Production Kubernetes deployment with RBAC, namespaces, PV/PVC storage & Prometheus monitoring stack.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-12">
+                        <span class="px-4 py-2 bg-emerald-500/20 text-emerald-300 rounded-2xl text-sm lg:text-base font-bold border border-emerald-500/40 group-hover:bg-emerald-500/30 transition-all duration-300">EKS</span>
+                        <span class="px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-2xl text-sm lg:text-base font-bold border border-indigo-500/40 group-hover:bg-indigo-500/30 transition-all duration-300">Prometheus</span>
+                        <span class="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-2xl text-sm lg:text-base font-bold border border-purple-500/40 group-hover:bg-purple-500/30 transition-all duration-300">Grafana</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-white/10">
+                        <div class="text-3xl lg:text-4xl font-black text-emerald-400 animate-pulse-slow">99.9%</div>
+                        <a href="#" class="glass-premium px-8 py-4 rounded-2xl font-bold hover:bg-white/20 backdrop-blur-xl transition-all duration-500 flex items-center group-hover:scale-105">
+                            <i class="fab fa-github mr-3 text-xl"></i>View Code
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="glass p-10 rounded-3xl card-hover backdrop-blur-xl border border-white/10 group cursor-pointer md:col-span-2" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-48 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
-                        <i class="fas fa-cube text-5xl text-white/30 group-hover:text-orange-400 transition-colors"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-4 group-hover:text-orange-400 transition-colors">AWS Infrastructure as Code</h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed">
-                        Automated complete AWS infrastructure (VPC, EC2, S3, IAM, RDS) using Terraform modules and remote state management. Built secure multi-tier VPC architecture.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium border border-orange-500/30">Terraform</span>
-                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30">AWS VPC</span>
-                        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-sm font-medium border border-slate-500/30">Infrastructure</span>
-                    </div>
-                    <div class="flex items-center justify-between">
+                <!-- Project 3 - Full Width -->
+                <div class="md:col-span-2 glass-premium p-16 rounded-4xl card-premium group backdrop-blur-xl relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-yellow-500/10"></div>
+                    <div class="relative grid lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div class="text-2xl font-bold text-emerald-400">100%</div>
-                            <div class="text-sm text-slate-400">Automated Provisioning</div>
+                            <div class="h-80 bg-gradient-to-br from-orange-500/30 via-red-500/20 to-yellow-500/20 rounded-4xl mb-8 group-hover:scale-110 transition-all duration-1000 flex items-center justify-center overflow-hidden">
+                                <div class="relative z-10">
+                                    <i class="fas fa-cube text-9xl text-white/20 group-hover:text-orange-400 transition-all duration-700 animate-spin-slow"></i>
+                                </div>
+                                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 transform -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                            </div>
                         </div>
-                        <a href="#" class="glass px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all backdrop-blur-xl">
-                            <i class="fab fa-github mr-2"></i>View Code
-                        </a>
+                        <div class="space-y-8">
+                            <h3 class="text-4xl lg:text-5xl font-black group-hover:text-orange-400 transition-all duration-700 leading-tight">AWS Infrastructure Automation</h3>
+                            <p class="text-xl text-slate-300 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                                Complete AWS infrastructure automation with VPC peering, multi-AZ RDS, IAM roles & Terraform remote state management.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="px-6 py-3 bg-orange-500/20 text-orange-300 rounded-3xl text-lg font-bold border border-orange-500/40 group-hover:bg-orange-500/30 transition-all duration-300">Terraform IaC</span>
+                                <span class="px-6 py-3 bg-blue-500/20 text-blue-300 rounded-3xl text-lg font-bold border border-blue-500/40 group-hover:bg-blue-500/30 transition-all duration-300">Multi-AZ VPC</span>
+                                <span class="px-6 py-3 bg-emerald-500/20 text-emerald-300 rounded-3xl text-lg font-bold border border-emerald-500/40 group-hover:bg-emerald-500/30 transition-all duration-300">100% Automated</span>
+                            </div>
+                            <div class="flex items-center pt-8 border-t border-white/10 gap-8">
+                                <div class="text-4xl font-black text-emerald-400 animate-pulse-slow">100%</div>
+                                <a href="#" class="glass-premium px-12 py-6 rounded-3xl font-bold text-xl hover:bg-white/20 backdrop-blur-xl shadow-2xl transition-all duration-500 flex items-center group-hover:scale-105">
+                                    <i class="fab fa-github mr-4 text-2xl"></i>View Complete Repo
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Client Websites -->
-            <div class="mt-20 grid md:grid-cols-2 gap-8">
-                <a href="https://raghavpackers.com/" target="_blank" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all backdrop-blur-xl group" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-400">Raghav Packers & Movers</h3>
-                    <p class="text-slate-400 mb-6">Production website built with HTML, CSS, JS & Bootstrap. SEO optimized with 20% faster load times.</p>
-                    <div class="flex items-center text-blue-400 font-semibold">
-                        <i class="fas fa-external-link-alt mr-2"></i>Live Site
+            <!-- Live Client Projects -->
+            <div class="mt-24 grid md:grid-cols-2 gap-12">
+                <a href="https://raghavpackers.com/" target="_blank" class="glass-premium p-12 rounded-3xl hover:bg-white/10 transition-all duration-700 backdrop-blur-xl group card-premium" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-3xl font-black mb-6 group-hover:text-blue-400 transition-all duration-700">Raghav Packers</h3>
+                    <p class="text-xl text-slate-300 mb-8 opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                        Production website with SEO optimization & 20% faster load times
+                    </p>
+                    <div class="flex items-center text-blue-400 font-bold text-xl group-hover:scale-110 transition-all duration-500">
+                        <i class="fas fa-external-link-alt mr-4 text-2xl"></i>LIVE SITE
                     </div>
                 </a>
-                <a href="https://dhmpackersandmovers.com/" target="_blank" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all backdrop-blur-xl group" data-aos="fade-up" data-aos-delay="500">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-400">DHM Packers & Movers</h3>
-                    <p class="text-slate-400 mb-6">Responsive business website with MySQL integration and cross-browser compatibility.</p>
-                    <div class="flex items-center text-blue-400 font-semibold">
-                        <i class="fas fa-external-link-alt mr-2"></i>Live Site
+                <a href="https://dhmpackersandmovers.com/" target="_blank" class="glass-premium p-12 rounded-3xl hover:bg-white/10 transition-all duration-700 backdrop-blur-xl group card-premium" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-3xl font-black mb-6 group-hover:text-emerald-400 transition-all duration-700">DHM Packers</h3>
+                    <p class="text-xl text-slate-300 mb-8 opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                        Responsive business platform with MySQL backend integration
+                    </p>
+                    <div class="flex items-center text-emerald-400 font-bold text-xl group-hover:scale-110 transition-all duration-500">
+                        <i class="fas fa-external-link-alt mr-4 text-2xl"></i>LIVE SITE
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-32 px-6 gradient-bg">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24" data-aos="fade-up">
-                <h2 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">Experience</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto"></div>
+    <!-- Experience & Education - Combined Ultra Premium -->
+    <section id="experience" class="py-40 px-6 relative z-10" style="background: linear-gradient(135deg, rgba(15,15,35,0.9) 0%, rgba(26,26,46,0.9) 100%);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-28" data-aos="fade-up">
+                <h2 class="text-6xl lg:text-7xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent mb-8 animate-float">
+                    Professional Journey
+                </h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-purple-400 to-orange-400 mx-auto rounded-full shadow-lg"></div>
             </div>
             
-            <div class="max-w-4xl mx-auto space-y-12" data-aos="fade-up">
-                <!-- Groveus -->
-                <div class="glass p-10 rounded-3xl backdrop-blur-xl border border-white/10 relative">
-                    <div class="absolute -left-4 w-1 h-full bg-gradient-to-b from-blue-400 to-purple-500"></div>
-                    <div class="flex items-start space-x-8">
-                        <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-globe text-2xl"></i>
+            <div class="space-y-20">
+                <!-- Groveus Experience -->
+                <div class="glass-premium p-12 lg:p-16 rounded-4xl backdrop-blur-xl relative group hover:bg-white/5 transition-all duration-700" data-aos="fade-up">
+                    <div class="absolute left-8 lg:left-12 w-1 h-full bg-gradient-to-b from-blue-400 to-purple-500 transform -translate-x-1/2"></div>
+                    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20 relative z-10">
+                        <div class="w-24 h-24 lg:w-32 lg:h-32 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-pulse-slow">
+                            <i class="fas fa-globe text-3xl lg:text-4xl"></i>
                         </div>
-                        <div class="flex-1 pt-4">
-                            <div class="flex items-center mb-4">
-                                <h3 class="text-2xl font-bold mr-4">Web Development Intern</h3>
-                                <span class="px-4 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm font-medium">Sep 2025 - Dec 2025</span>
+                        <div class="flex-1">
+                            <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8 mb-8">
+                                <h3 class="text-3xl lg:text-4xl font-black text-white">Web Development Intern</h3>
+                                <span class="glass-premium px-8 py-4 rounded-2xl font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-lg">Sep 2025 - Dec 2025</span>
                             </div>
-                            <h4 class="text-xl font-semibold text-slate-200 mb-4">Groveus</h4>
-                            <ul class="space-y-3 text-slate-300">
-                                <li><i class="fas fa-check-circle text-emerald-400 mr-3"></i>Developed responsive websites using HTML, CSS, JavaScript & Bootstrap across multiple client projects</li>
-                                <li><i class="fas fa-check-circle text-emerald-400 mr-3"></i>Optimized frontend assets & SEO, improving page load speed by <strong>20%</strong></li>
-                                <li><i class="fas fa-check-circle text-emerald-400 mr-3"></i>Managed MySQL databases and backend content across production websites</li>
-                            </ul>
+                            <h4 class="text-2xl lg:text-3xl font-bold text-slate-200 mb-8">Groveus</h4>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-emerald-400 text-2xl mr-4 mt-1 flex-shrink-0"></i>
+                                        <span class="text-xl text-slate-200">Built responsive client websites with HTML/CSS/JS/Bootstrap</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-emerald-400 text-2xl mr-4 mt-1 flex-shrink-0"></i>
+                                        <span class="text-xl text-slate-200">Optimized SEO & assets - <strong>20% faster load times</strong></span>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-emerald-400 text-2xl mr-4 mt-1 flex-shrink-0"></i>
+                                        <span class="text-xl text-slate-200">Managed production MySQL databases across multiple sites</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- CodTrees -->
-                <div class="glass p-10 rounded-3xl backdrop-blur-xl border border-white/10 relative">
-                    <div class="absolute -left-4 w-1 h-full bg-gradient-to-b from-orange-400 to-red-500"></div>
-                    <div class="flex items-start space-x-8">
-                        <div class="w-20 h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-laptop-code text-2xl"></i>
+                <!-- Education -->
+                <div class="glass-premium p-16 rounded-4xl backdrop-blur-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-4xl lg:text-5xl font-black mb-12 bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                        Academic Foundation
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-16">
+                        <div class="group hover:bg-white/5 p-12 rounded-3xl transition-all duration-700">
+                            <h4 class="text-3xl font-black mb-6 text-slate-100">B.Tech CSE</h4>
+                            <p class="text-5xl font-black text-emerald-400 mb-4 animate-float">8.31 CGPA</p>
+                            <p class="text-xl text-slate-300">Surendra Institute of Engineering</p>
+                            <p class="text-lg text-slate-400">2021 - 2024</p>
                         </div>
-                        <div class="flex-1 pt-4">
-                            <div class="flex items-center mb-4">
-                                <h3 class="text-2xl font-bold mr-4">Web Development Intern</h3>
-                                <span class="px-4 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium">Jan 2024 - Apr 2024</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-slate-200 mb-4">CodTrees</h4>
-                            <ul class="space-y-3 text-slate-300">
-                                <li><i class="fas fa-check-circle text-orange-400 mr-3"></i>Built responsive front-end interfaces using HTML, CSS & JavaScript for dynamic web applications</li>
-                                <li><i class="fas fa-check-circle text-orange-400 mr-3"></i>Managed MySQL databases ensuring reliable data storage and retrieval for production systems</li>
-                            </ul>
+                        <div class="group hover:bg-white/5 p-12 rounded-3xl transition-all duration-700">
+                            <h4 class="text-3xl font-black mb-6 text-slate-100">Diploma EE</h4>
+                            <p class="text-5xl font-black text-orange-400 mb-4 animate-float">74.2%</p>
+                            <p class="text-xl text-slate-300">Darjeeling Polytechnic Institute</p>
+                            <p class="text-lg text-slate-400">2018 - 2021</p>
                         </div>
                     </div>
                 </div>
@@ -401,116 +527,149 @@
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="py-24 px-6 bg-slate-900/50">
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-slate-100 mb-8">Education</h2>
-            <div class="glass p-12 rounded-3xl backdrop-blur-xl border border-white/10">
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">B.Tech Computer Science</h3>
-                        <p class="text-slate-400 mb-4">Surendra Institute of Engineering & Management</p>
-                        <p class="text-3xl font-bold text-emerald-400 mb-2">8.31 CGPA</p>
-                        <p class="text-sm text-slate-500">2021 - 2024</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Diploma Electrical Engineering</h3>
-                        <p class="text-slate-400 mb-4">Darjeeling Polytechnic Institute</p>
-                        <p class="text-3xl font-bold text-emerald-400 mb-2">74.2%</p>
-                        <p class="text-sm text-slate-500">2018 - 2021</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 gradient-bg">
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <div class="mb-16" data-aos="fade-up" data-aos-delay="100">
-                <h2 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">Let's Build Together</h2>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
-                    Ready to architect scalable cloud infrastructure and automate your DevOps workflows? Let's deploy the future.
+    <!-- Contact Section - Ultra Premium -->
+    <section id="contact" class="py-40 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="mb-20" data-aos="fade-up">
+                <h2 class="text-6xl lg:text-7xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent mb-8 animate-float">
+                    Let's Deploy the Future
+                </h2>
+                <p class="text-2xl text-slate-300 max-w-4xl mx-auto opacity-90">
+                    Ready to architect <strong>production-grade cloud infrastructure</strong> and streamline your DevOps workflows? 
+                    Let's build scalable systems together.
                 </p>
             </div>
             
-            <div class="glass p-12 rounded-3xl backdrop-blur-xl border border-white/10 mb-12" data-aos="fade-up" data-aos-delay="200">
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-envelope text-2xl"></i>
+            <div class="glass-premium p-16 lg:p-20 rounded-4xl backdrop-blur-xl mb-20 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+                    <div class="group cursor-pointer p-8 hover:bg-white/10 rounded-3xl transition-all duration-700">
+                        <div class="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-spin-slow">
+                            <i class="fas fa-envelope text-2xl lg:text-3xl"></i>
                         </div>
-                        <h4 class="font-semibold mb-2">Email</h4>
-                        <a href="mailto:ritesh010996@gmail.com" class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium">ritesh010996@gmail.com</a>
+                        <h4 class="font-black text-2xl mb-4 text-slate-100">Email</h4>
+                        <a href="mailto:ritesh010996@gmail.com" class="text-xl text-slate-300 hover:text-blue-400 font-bold transition-all duration-500 block">ritesh010996@gmail.com</a>
                     </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-phone text-2xl"></i>
+                    <div class="group cursor-pointer p-8 hover:bg-white/10 rounded-3xl transition-all duration-700">
+                        <div class="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-pulse-slow">
+                            <i class="fas fa-phone text-2xl lg:text-3xl"></i>
                         </div>
-                        <h4 class="font-semibold mb-2">Phone</h4>
-                        <a href="tel:+917031218049" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">+91 70312 18049</a>
+                        <h4 class="font-black text-2xl mb-4 text-slate-100">Phone</h4>
+                        <a href="tel:+917031218049" class="text-xl text-slate-300 hover:text-emerald-400 font-bold transition-all duration-500 block">+91 70312 18049</a>
                     </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i class="fab fa-linkedin text-2xl"></i>
+                    <div class="group cursor-pointer p-8 hover:bg-white/10 rounded-3xl transition-all duration-700">
+                        <div class="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-r from-purple-500 to-pink-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-bounce-slow">
+                            <i class="fab fa-linkedin text-2xl lg:text-3xl"></i>
                         </div>
-                        <h4 class="font-semibold mb-2">LinkedIn</h4>
-                        <a href="https://linkedin.com/in/ritesh-prasad-7666bb326" target="_blank" class="text-slate-400 hover:text-purple-400 transition-colors text-sm font-medium">View Profile</a>
+                        <h4 class="font-black text-2xl mb-4 text-slate-100">LinkedIn</h4>
+                        <a href="https://linkedin.com/in/ritesh-prasad-7666bb326" target="_blank" class="text-xl text-slate-300 hover:text-purple-400 font-bold transition-all duration-500 block">View Profile</a>
                     </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i class="fab fa-github text-2xl"></i>
+                    <div class="group cursor-pointer p-8 hover:bg-white/10 rounded-3xl transition-all duration-700">
+                        <div class="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-r from-slate-500 to-slate-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-700 animate-pulse-slow">
+                            <i class="fab fa-github text-2xl lg:text-3xl"></i>
                         </div>
-                        <h4 class="font-semibold mb-2">GitHub</h4>
-                        <a href="https://github.com/Ritesh-Prasad" target="_blank" class="text-slate-400 hover:text-slate-300 transition-colors text-sm font-medium">Ritesh-Prasad</a>
+                        <h4 class="font-black text-2xl mb-4 text-slate-100">GitHub</h4>
+                        <a href="https://github.com/Ritesh-Prasad" target="_blank" class="text-xl text-slate-300 hover:text-slate-200 font-bold transition-all duration-500 block">Ritesh-Prasad</a>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-6 justify-center" data-aos="fade-up" data-aos-delay="300">
-                <a href="Ritesh_Prasad_Cloud_DevOps_Engineer.pdf" download class="glass px-12 py-6 rounded-3xl font-bold text-xl border-2 border-dashed border-white/30 hover:border-white/50 hover:bg-white/10 transition-all backdrop-blur-xl shadow-2xl w-full sm:w-auto text-center">
-                    <i class="fas fa-file-download mr-3"></i>Download Resume
+            <!-- Ultimate CTA Buttons -->
+            <div class="flex flex-col lg:flex-row gap-8 justify-center items-center max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                <a href="Ritesh_Prasad_Cloud_DevOps_Engineer.pdf" download class="glass-premium w-full lg:w-auto px-16 py-8 rounded-4xl font-black text-2xl border-2 border-dashed border-white/30 hover:border-white/60 shadow-2xl hover:shadow-white/20 hover:bg-white/10 transition-all duration-700 backdrop-blur-xl text-center group relative overflow-hidden">
+                    <span class="relative z-10 flex items-center justify-center">
+                        <i class="fas fa-file-download mr-4 text-3xl group-hover:animate-bounce"></i>
+                        Download Resume
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </a>
-                <a href="mailto:ritesh010996@gmail.com?subject=DevOps%20Position%20-%20Ritesh%20Prasad" class="glass px-12 py-6 rounded-3xl font-bold text-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all backdrop-blur-xl w-full sm:w-auto text-center">
-                    <i class="fas fa-paper-plane mr-3"></i>Get In Touch
+                <a href="mailto:ritesh010996@gmail.com?subject=DevOps%20Opportunity%20-%20Ritesh%20Portfolio" class="btn-premium w-full lg:w-auto px-16 py-8 rounded-4xl font-black text-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white shadow-2xl hover:shadow-2xl hover:scale-105 transition-all duration-700 backdrop-blur-xl relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center justify-center">
+                        <i class="fas fa-paper-plane mr-4 text-3xl animate-pulse-slow"></i>
+                        Get In Touch
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/30 via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-0"></div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/50 py-12 px-6 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto text-center text-slate-500">
-            <p>&copy; 2026 Ritesh Prasad. Built with ❤️ for Cloud & DevOps excellence. <i class="fas fa-rocket ml-2 text-blue-400"></i></p>
+    <!-- Premium Footer -->
+    <footer class="glass-premium backdrop-blur-xl border-t border-white/10 py-16 px-6 mt-24">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="text-2xl mb-8 animate-float">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-black text-3xl">&copy; 2026 Ritesh Prasad</span>
+            </div>
+            <p class="text-xl text-slate-400 mb-12 opacity-80">
+                Crafted with <i class="fas fa-heart text-red-400 animate-pulse mx-2"></i> for Cloud & DevOps Excellence
+            </p>
+            <div class="flex justify-center items-center space-x-8 text-2xl text-slate-400">
+                <a href="#" class="hover:text-blue-400 transition-colors duration-300 p-4 hover:bg-white/10 rounded-2xl group-hover:scale-110"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors duration-300 p-4 hover:bg-white/10 rounded-2xl group-hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-slate-300 transition-colors duration-300 p-4 hover:bg-white/10 rounded-2xl group-hover:scale-110"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Premium AOS Initialization
         AOS.init({
-            duration: 1000,
+            duration: 1200,
             once: true,
-            offset: 100
+            offset: 120,
+            easing: 'cubic-bezier(0.23, 1, 0.320, 1)'
         });
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling with enhanced offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
 
-        // Navbar background on scroll
+        // Navbar scroll effects
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.sticky-nav');
+            const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
-                nav.classList.add('backdrop-blur-xl', 'bg-white/5');
+                nav.style.background = 'rgba(255,255,255,0.15)';
+                nav.style.backdropFilter = 'blur(30px)';
             } else {
-                nav.classList.remove('backdrop-blur-xl', 'bg-white/5');
+                nav.style.background = 'rgba(255,255,255,0.08)';
+                nav.style.backdropFilter = 'blur(20px)';
             }
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const parallax = document.querySelector('.gradient-bg');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Intersection Observer for staggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-premium, .glass-premium').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
