@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ritesh Prasad | DevOps Engineer</title>
+<title>Ritesh Prasad | Cloud & DevOps Engineer</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,18 +16,14 @@ body { background:#0f172a; color:white; }
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
 }
-.pod {
-  transition: all 0.5s ease;
-}
-.pod:hover {
-  transform: scale(1.1);
-}
+.pod { transition:0.5s; }
+.pod:hover { transform:scale(1.1); }
 </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
+<!-- NAVBAR -->
 <nav class="fixed w-full bg-black/40 backdrop-blur-lg z-50">
 <div class="max-w-6xl mx-auto flex justify-between p-4">
 <h1 class="font-bold">Ritesh</h1>
@@ -41,117 +37,117 @@ body { background:#0f172a; color:white; }
 </div>
 </nav>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="h-screen flex flex-col justify-center items-center text-center">
 <h1 class="text-5xl font-bold mb-4">Ritesh Prasad</h1>
 <h2 class="text-xl text-gray-400 mb-6">Cloud & DevOps Engineer</h2>
+
 <p class="max-w-xl mb-6">
-Designing scalable cloud systems, automating deployments, and ensuring high availability.
+Designing scalable cloud infrastructure, automating CI/CD pipelines, and ensuring high availability systems.
 </p>
 
 <div class="space-x-4">
 <a href="#contact" class="bg-blue-500 px-6 py-2 rounded">Hire Me</a>
 <a href="#projects" class="border px-6 py-2 rounded">View Projects</a>
+<a href="Ritesh_Resume.pdf" class="bg-green-500 px-6 py-2 rounded" download>Download Resume</a>
 </div>
 </section>
 
-<!-- About -->
+<!-- ABOUT -->
 <section id="about" class="max-w-5xl mx-auto py-20" data-aos="fade-up">
 <h2 class="text-3xl font-bold mb-6">About Me</h2>
 <p class="text-gray-400">
-Cloud & DevOps Engineer focused on automation, scalability, and reliability. 
-Experienced in CI/CD pipelines, Kubernetes orchestration, and Terraform-based infrastructure.
+Cloud & DevOps Engineer specializing in CI/CD automation, Kubernetes orchestration, and Infrastructure as Code using Terraform.
+Focused on building scalable, secure, and highly available cloud-native systems with real-time monitoring and automation.
 </p>
 </section>
 
-<!-- Skills -->
+<!-- SKILLS -->
 <section id="skills" class="max-w-6xl mx-auto py-20">
-<h2 class="text-3xl font-bold mb-10 text-center">Technical Expertise</h2>
+<h2 class="text-3xl font-bold text-center mb-10">Technical Expertise</h2>
 
-<div class="grid md:grid-cols-3 gap-8">
+<div class="grid md:grid-cols-3 gap-6">
 
-<div class="glass p-6 rounded-xl">☁️ AWS, Azure, GCP</div>
-<div class="glass p-6 rounded-xl">📦 Docker, Kubernetes, EKS</div>
-<div class="glass p-6 rounded-xl">🔁 Jenkins, GitHub Actions, ArgoCD</div>
-<div class="glass p-6 rounded-xl">🏗 Terraform, Terraform Cloud</div>
-<div class="glass p-6 rounded-xl">📊 Prometheus, Grafana, CloudWatch</div>
-<div class="glass p-6 rounded-xl">🔐 Trivy, SonarQube</div>
-<div class="glass p-6 rounded-xl">💻 Python, JavaScript</div>
-<div class="glass p-6 rounded-xl">🌐 Nginx, Apache, Tomcat</div>
-<div class="glass p-6 rounded-xl">🗄 MySQL, AWS RDS</div>
+<div class="glass p-6 rounded">☁️ AWS, Azure, GCP</div>
+<div class="glass p-6 rounded">📦 Docker, Kubernetes, EKS</div>
+<div class="glass p-6 rounded">🔁 Jenkins, GitHub Actions, ArgoCD</div>
+<div class="glass p-6 rounded">🏗 Terraform, Terraform Cloud</div>
+<div class="glass p-6 rounded">📊 Prometheus, Grafana, CloudWatch</div>
+<div class="glass p-6 rounded">🔐 Trivy, SonarQube</div>
+<div class="glass p-6 rounded">💻 Python, JavaScript</div>
+<div class="glass p-6 rounded">🌐 Nginx, Apache, Tomcat</div>
+<div class="glass p-6 rounded">🗄 MySQL, AWS RDS</div>
 
 </div>
 </section>
 
-<!-- Projects -->
+<!-- PROJECTS -->
 <section id="projects" class="max-w-6xl mx-auto py-20">
-<h2 class="text-3xl font-bold mb-12 text-center">Projects</h2>
+<h2 class="text-3xl font-bold text-center mb-12">Production Projects</h2>
 
-<div id="github-projects" class="grid md:grid-cols-2 gap-6"></div>
+<div class="space-y-8">
 
-</section>
-
-<!-- Architecture -->
-<section class="max-w-6xl mx-auto py-20">
-<h2 class="text-3xl font-bold text-center mb-12">Architecture</h2>
-
-<div class="glass p-6 rounded-xl text-center">
-GitHub → Jenkins → Build → Test → Docker → Kubernetes
+<div class="glass p-6 rounded">
+<h3 class="text-xl font-bold">🚀 CI/CD Pipeline</h3>
+<p class="text-gray-400">Automated build, test, and deployment using Jenkins, Docker, Kubernetes.</p>
+<p class="text-green-400">Reduced deployment time by 60%</p>
 </div>
+
+<div class="glass p-6 rounded">
+<h3 class="text-xl font-bold">☸️ Kubernetes Deployment</h3>
+<p class="text-gray-400">Deployed scalable apps on EKS with monitoring and auto-scaling.</p>
+</div>
+
+<div class="glass p-6 rounded">
+<h3 class="text-xl font-bold">☁️ Terraform AWS Infra</h3>
+<p class="text-gray-400">Automated provisioning of VPC, EC2, IAM, RDS using Terraform.</p>
+</div>
+
+</div>
+
+<div id="github-projects" class="grid md:grid-cols-2 gap-6 mt-10"></div>
+
 </section>
 
-<!-- Dashboard -->
+<!-- DASHBOARD -->
 <section id="dashboard" class="max-w-6xl mx-auto py-20">
 <h2 class="text-3xl font-bold text-center mb-12">DevOps Dashboard</h2>
 
 <div class="grid md:grid-cols-3 gap-6">
 
-<div class="glass p-6 rounded-xl">
-<h3>System Uptime</h3>
-<p class="text-3xl text-green-400">99.98%</p>
+<div class="glass p-6 rounded">
+<h3>Uptime</h3>
+<p class="text-green-400 text-2xl">99.98%</p>
 </div>
 
-<div class="glass p-6 rounded-xl">
+<div class="glass p-6 rounded">
 <canvas id="cpuChart"></canvas>
 </div>
 
-<div class="glass p-6 rounded-xl">
+<div class="glass p-6 rounded">
 <canvas id="memoryChart"></canvas>
 </div>
 
-<div class="glass p-6 rounded-xl md:col-span-2">
+<div class="glass p-6 rounded md:col-span-2">
 <canvas id="trafficChart"></canvas>
 </div>
 
 </div>
 </section>
 
-<!-- Kubernetes -->
-<section id="k8s" class="max-w-6xl mx-auto py-20">
-<h2 class="text-3xl font-bold text-center mb-12">Kubernetes Cluster</h2>
+<!-- KUBERNETES -->
+<section class="max-w-6xl mx-auto py-20">
+<h2 class="text-3xl text-center mb-10">Kubernetes Cluster</h2>
 
-<div class="glass p-8 rounded-xl">
-
-<div class="flex flex-col items-center gap-6">
-
-<div class="px-6 py-3 bg-blue-500/20 rounded">Load Balancer</div>
-
-<div class="flex gap-6">
-
-<div class="px-6 py-3 bg-green-500/20 rounded">Service</div>
-
-<div class="flex gap-4" id="pods"></div>
-
-</div>
-
-</div>
-
+<div class="glass p-8 rounded text-center">
+<div class="mb-4">Load Balancer → Service → Pods</div>
+<div class="flex justify-center gap-4" id="pods"></div>
 </div>
 </section>
 
-<!-- Contact -->
-<section id="contact" class="max-w-4xl mx-auto py-20 text-center">
-<h2 class="text-3xl font-bold mb-6">Contact</h2>
+<!-- CONTACT -->
+<section id="contact" class="text-center py-20">
+<h2 class="text-3xl mb-4">Contact</h2>
 <p>Email: ritesh010996@gmail.com</p>
 <p>Phone: 7031218049</p>
 </section>
@@ -160,79 +156,71 @@ GitHub → Jenkins → Build → Test → Docker → Kubernetes
 <script>AOS.init();</script>
 
 <script>
-// GitHub Projects
+// GitHub
 fetch("https://api.github.com/users/Ritesh-Prasad/repos")
-.then(res => res.json())
-.then(data => {
-  const container = document.getElementById("github-projects");
-  data.slice(0,6).forEach(repo => {
-    const div = document.createElement("div");
-    div.className="glass p-6 rounded-xl";
-    div.innerHTML=`
-      <h3 class="text-xl font-bold">${repo.name}</h3>
-      <p>${repo.description || "DevOps Project"}</p>
-      <a href="${repo.html_url}" target="_blank">View</a>
-    `;
-    container.appendChild(div);
-  });
+.then(res=>res.json())
+.then(data=>{
+const c=document.getElementById("github-projects");
+data.slice(0,6).forEach(r=>{
+let d=document.createElement("div");
+d.className="glass p-6 rounded";
+d.innerHTML=`<h3>${r.name}</h3><p>${r.description||""}</p><a href="${r.html_url}" target="_blank">View</a>`;
+c.appendChild(d);
+});
 });
 
 // Charts
 function rand(){return Math.floor(Math.random()*80)+20;}
 
-const cpuChart=new Chart(document.getElementById("cpuChart"),{
+const cpu=new Chart(document.getElementById("cpuChart"),{
 type:"line",
 data:{labels:[1,2,3,4,5],datasets:[{data:[rand(),rand(),rand(),rand(),rand()],borderColor:"#3b82f6"}]},
 options:{plugins:{legend:{display:false}}}
 });
 
 setInterval(()=>{
-cpuChart.data.datasets[0].data.shift();
-cpuChart.data.datasets[0].data.push(rand());
-cpuChart.update();
+cpu.data.datasets[0].data.shift();
+cpu.data.datasets[0].data.push(rand());
+cpu.update();
 },2000);
 
-// Memory
-const memoryChart=new Chart(document.getElementById("memoryChart"),{
+const mem=new Chart(document.getElementById("memoryChart"),{
 type:"line",
 data:{labels:[1,2,3,4,5],datasets:[{data:[rand(),rand(),rand(),rand(),rand()],borderColor:"#10b981"}]},
 options:{plugins:{legend:{display:false}}}
 });
 
 setInterval(()=>{
-memoryChart.data.datasets[0].data.shift();
-memoryChart.data.datasets[0].data.push(rand());
-memoryChart.update();
+mem.data.datasets[0].data.shift();
+mem.data.datasets[0].data.push(rand());
+mem.update();
 },2500);
 
-// Traffic
-const trafficChart=new Chart(document.getElementById("trafficChart"),{
+const traffic=new Chart(document.getElementById("trafficChart"),{
 type:"bar",
 data:{labels:["Mon","Tue","Wed","Thu","Fri"],datasets:[{data:[120,200,300,250,280],backgroundColor:"#6366f1"}]},
 options:{plugins:{legend:{display:false}}}
 });
 
 setInterval(()=>{
-trafficChart.data.datasets[0].data=trafficChart.data.datasets[0].data.map(()=>rand()+100);
-trafficChart.update();
+traffic.data.datasets[0].data=traffic.data.datasets[0].data.map(()=>rand()+100);
+traffic.update();
 },3000);
 
-// Kubernetes Pods Auto Scaling
-const podContainer=document.getElementById("pods");
-
-function scalePods(){
-  const count=Math.floor(Math.random()*5)+2;
-  podContainer.innerHTML="";
-  for(let i=1;i<=count;i++){
-    const pod=document.createElement("div");
-    pod.className="pod bg-purple-500/20 px-4 py-2 rounded";
-    pod.innerText="Pod "+i;
-    podContainer.appendChild(pod);
-  }
+// Kubernetes
+const pods=document.getElementById("pods");
+function scale(){
+let n=Math.floor(Math.random()*5)+2;
+pods.innerHTML="";
+for(let i=1;i<=n;i++){
+let p=document.createElement("div");
+p.className="pod bg-purple-500/20 px-4 py-2 rounded";
+p.innerText="Pod "+i;
+pods.appendChild(p);
 }
-
-scalePods();
-setInterval(scalePods,4000);
+}
+scale();
+setInterval(scale,4000);
 
 </script>
 
