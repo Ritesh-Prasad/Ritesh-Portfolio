@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ritesh Prasad | Cloud & DevOps Engineer</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
@@ -17,13 +15,6 @@ body { background:#020617; color:white; }
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
 }
-.gradient {
-  background: linear-gradient(90deg,#3b82f6,#8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.pod { transition:0.4s; }
-.pod:hover { transform:scale(1.1); }
 </style>
 </head>
 
@@ -32,12 +23,12 @@ body { background:#020617; color:white; }
 <!-- NAVBAR -->
 <nav class="fixed w-full bg-black/40 backdrop-blur-lg z-50">
 <div class="max-w-6xl mx-auto flex justify-between p-4">
-<h1 class="font-bold text-lg">Ritesh</h1>
+<h1 class="font-bold">Ritesh Prasad</h1>
 <div class="space-x-6 hidden md:block">
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
-<a href="#dashboard">Dashboard</a>
 <a href="#contact">Contact</a>
 </div>
 </div>
@@ -45,214 +36,131 @@ body { background:#020617; color:white; }
 
 <!-- HERO -->
 <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+<h1 class="text-5xl font-bold mb-4">Ritesh Prasad</h1>
+<h2 class="text-xl text-gray-400 mb-6">Cloud & DevOps Engineer</h2>
 
-<h1 class="text-5xl font-bold mb-4 gradient">
-Ritesh Prasad
-</h1>
-
-<h2 class="text-xl text-gray-400 mb-6">
-Cloud & DevOps Engineer
-</h2>
-
-<p class="max-w-xl text-gray-400 mb-6">
-Building scalable cloud systems, automating CI/CD pipelines, and ensuring 
-high availability using production-grade DevOps practices.
+<p class="max-w-2xl text-gray-400 mb-6">
+DevOps Engineer specializing in CI/CD, Infrastructure as Code (Terraform), Kubernetes, and cloud-native architectures. Proven ability to automate deployments, improve system reliability, and reduce deployment time by 60%.
 </p>
 
 <div class="space-x-4">
 <a href="#contact" class="bg-blue-500 px-6 py-2 rounded">Hire Me</a>
-<a href="#projects" class="border px-6 py-2 rounded">Projects</a>
-<a href="./Ritesh_Prasad_DevOps_Resume.pdf" download class="bg-green-500 px-6 py-2 rounded">Resume</a>
+<a href="./Ritesh_Prasad_DevOps_Resume.pdf" download class="bg-green-500 px-6 py-2 rounded">Download Resume</a>
 </div>
-
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="max-w-5xl mx-auto py-20 px-4" data-aos="fade-up">
-<h2 class="text-3xl font-bold mb-6">About Me</h2>
+<section id="about" class="max-w-5xl mx-auto py-20 px-4">
+<h2 class="text-3xl font-bold mb-6">Professional Summary</h2>
 
-<p class="text-gray-400">
-Cloud & DevOps Engineer with hands-on experience in CI/CD automation, Terraform-based infrastructure, and Kubernetes deployments. Focused on building scalable, secure, and highly available systems with monitoring and automation.
+<p class="text-gray-400 leading-relaxed">
+Results-driven Cloud & DevOps Engineer with expertise in building CI/CD pipelines, automating infrastructure using Terraform, and deploying scalable applications on Kubernetes (EKS). Strong experience in monitoring (Prometheus, Grafana), security scanning (Trivy, SonarQube), and cloud platforms (AWS). Passionate about automation, scalability, and high availability systems.
 </p>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="max-w-6xl mx-auto py-20 px-4">
-<h2 class="text-3xl font-bold text-center mb-12">Technical Expertise</h2>
+<h2 class="text-3xl font-bold text-center mb-10">Technical Skills</h2>
 
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-3 gap-6 text-gray-300">
 
-<div class="glass p-6 rounded">☁️ AWS, Azure, GCP</div>
-<div class="glass p-6 rounded">📦 Docker, Kubernetes, EKS</div>
-<div class="glass p-6 rounded">🔁 Jenkins, GitHub Actions, ArgoCD</div>
-<div class="glass p-6 rounded">🏗 Terraform, Terraform Cloud</div>
-<div class="glass p-6 rounded">📊 Prometheus, Grafana, CloudWatch</div>
-<div class="glass p-6 rounded">🔐 Trivy, SonarQube</div>
-<div class="glass p-6 rounded">💻 Python, JavaScript</div>
-<div class="glass p-6 rounded">🌐 Nginx, Apache, Tomcat</div>
-<div class="glass p-6 rounded">🗄 MySQL, AWS RDS</div>
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">Cloud</h3>
+<p>AWS, Azure, GCP</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">DevOps Tools</h3>
+<p>Jenkins, GitHub Actions, ArgoCD</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">Containers</h3>
+<p>Docker, Kubernetes, EKS</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">Infrastructure</h3>
+<p>Terraform, HCP Terraform</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">Monitoring</h3>
+<p>Prometheus, Grafana, CloudWatch</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">Security</h3>
+<p>Trivy, SonarQube</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">Languages</h3>
+<p>Python, JavaScript</p>
+</div>
+
+<div class="glass p-6">
+<h3 class="font-bold text-white mb-2">Web & DB</h3>
+<p>Nginx, Apache, Tomcat, MySQL</p>
+</div>
 
 </div>
 </section>
 
-<!-- FEATURED PROJECTS -->
+<!-- EXPERIENCE -->
+<section id="experience" class="max-w-6xl mx-auto py-20 px-4">
+<h2 class="text-3xl font-bold text-center mb-10">Experience</h2>
+
+<div class="glass p-6 rounded mb-6">
+<h3 class="text-xl font-bold">DevOps Engineer (Project-Based)</h3>
+
+<ul class="text-gray-400 mt-4 space-y-2">
+<li>✔ Built CI/CD pipeline reducing deployment time by 60% using Jenkins, Git, Maven</li>
+<li>✔ Automated AWS infrastructure provisioning using Terraform</li>
+<li>✔ Deployed containerized applications using Docker & Kubernetes (EKS)</li>
+<li>✔ Implemented monitoring with Prometheus & Grafana improving visibility</li>
+<li>✔ Integrated security tools like Trivy & SonarQube</li>
+</ul>
+</div>
+
+</section>
+
+<!-- PROJECTS -->
 <section id="projects" class="max-w-6xl mx-auto py-20 px-4">
-<h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+<h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
 
-<div class="grid md:grid-cols-3 gap-6">
+<div class="glass p-6 mb-6">
+<h3 class="text-xl font-bold">Netflix Clone DevOps Project</h3>
 
-<div class="glass p-6 rounded hover:scale-105 transition">
-<h3 class="font-bold">CI/CD Pipeline</h3>
-<p class="text-gray-400">Automated Jenkins pipeline reducing deployment time by 60%</p>
-</div>
-
-<div class="glass p-6 rounded hover:scale-105 transition">
-<h3 class="font-bold">Kubernetes Deployment</h3>
-<p class="text-gray-400">EKS deployment with monitoring & scaling</p>
-</div>
-
-<div class="glass p-6 rounded hover:scale-105 transition">
-<h3 class="font-bold">Terraform Infrastructure</h3>
-<p class="text-gray-400">Automated AWS infrastructure provisioning</p>
-</div>
-
-</div>
-</section>
-
-<!-- NETFLIX PROJECT -->
-<section class="max-w-6xl mx-auto py-20 px-4">
-<h2 class="text-3xl font-bold text-center mb-12">🚀 Flagship Project</h2>
-
-<div class="glass p-8 rounded-xl">
-
-<h3 class="text-2xl font-bold mb-4">Netflix Clone DevOps Platform</h3>
-
-<p class="text-gray-400 mb-6">
-End-to-end automated DevOps pipeline using Terraform, Jenkins, Ansible, and AWS with monitoring and high availability.
+<p class="text-gray-400 mt-2">
+End-to-end DevOps pipeline using Terraform, Jenkins, Ansible, AWS, Prometheus, and Grafana.
 </p>
 
-<div class="grid md:grid-cols-2 gap-6 text-gray-400">
-
-<div>
-<h4 class="text-white font-semibold mb-2">Infrastructure</h4>
-<ul>
-<li>✔ Terraform + HCP</li>
-<li>✔ EC2: Jenkins + Tomcat Servers</li>
-<li>✔ S3 for artifacts</li>
+<ul class="text-gray-400 mt-4 space-y-2">
+<li>✔ Automated infrastructure provisioning (Terraform + HCP)</li>
+<li>✔ CI/CD pipeline using Jenkins + Maven</li>
+<li>✔ Multi-server deployment using Ansible</li>
+<li>✔ Monitoring using Prometheus & Grafana</li>
 </ul>
 </div>
 
-<div>
-<h4 class="text-white font-semibold mb-2">CI/CD</h4>
-<ul>
-<li>✔ Jenkins pipeline</li>
-<li>✔ Maven build</li>
-<li>✔ Automated deployment</li>
-</ul>
-</div>
-
-<div>
-<h4 class="text-white font-semibold mb-2">Automation</h4>
-<ul>
-<li>✔ Ansible configuration</li>
-<li>✔ Zero manual setup</li>
-</ul>
-</div>
-
-<div>
-<h4 class="text-white font-semibold mb-2">Monitoring</h4>
-<ul>
-<li>✔ Prometheus</li>
-<li>✔ Grafana dashboards</li>
-</ul>
-</div>
-
-</div>
-
-<p class="text-green-400 mt-6">✔ Fully automated deployment | High availability | Real-time monitoring</p>
-
-</div>
 </section>
 
-<!-- DASHBOARD -->
-<section id="dashboard" class="max-w-6xl mx-auto py-20 px-4">
-<h2 class="text-3xl text-center mb-10">DevOps Dashboard</h2>
-
-<div class="grid md:grid-cols-3 gap-6">
-
-<div class="glass p-6">
-<p>Uptime</p>
-<h2 class="text-green-400 text-2xl">99.98%</h2>
-</div>
-
-<div class="glass p-6"><canvas id="cpu"></canvas></div>
-<div class="glass p-6"><canvas id="mem"></canvas></div>
-
-</div>
-</section>
-
-<!-- KUBERNETES -->
-<section class="max-w-6xl mx-auto py-20 px-4 text-center">
-<h2 class="text-3xl mb-6">Kubernetes Cluster</h2>
-
-<div class="glass p-6">
-<div class="mb-4">LoadBalancer → Service → Pods</div>
-<div id="pods" class="flex justify-center gap-4"></div>
-</div>
+<!-- EDUCATION -->
+<section class="max-w-5xl mx-auto py-20 px-4">
+<h2 class="text-3xl font-bold mb-6">Education</h2>
+<p class="text-gray-400">Bachelor’s Degree (Add your details)</p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="text-center py-20">
-<h2 class="text-3xl mb-4">Let’s Build Scalable Systems Together</h2>
-
-<p>ritesh010996@gmail.com</p>
-<p>7031218049</p>
+<h2 class="text-3xl mb-4">Contact</h2>
+<p>Email: ritesh010996@gmail.com</p>
+<p>Phone: 7031218049</p>
 </section>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init();</script>
-
-<script>
-function rand(){return Math.floor(Math.random()*80)+20;}
-
-const cpu=new Chart(document.getElementById("cpu"),{
-type:"line",
-data:{labels:[1,2,3,4,5],datasets:[{data:[rand(),rand(),rand(),rand(),rand()]}]}
-});
-
-setInterval(()=>{
-cpu.data.datasets[0].data.shift();
-cpu.data.datasets[0].data.push(rand());
-cpu.update();
-},2000);
-
-const mem=new Chart(document.getElementById("mem"),{
-type:"line",
-data:{labels:[1,2,3,4,5],datasets:[{data:[rand(),rand(),rand(),rand(),rand()]}]}
-});
-
-setInterval(()=>{
-mem.data.datasets[0].data.shift();
-mem.data.datasets[0].data.push(rand());
-mem.update();
-},2500);
-
-const pods=document.getElementById("pods");
-
-function scale(){
-let n=Math.floor(Math.random()*5)+2;
-pods.innerHTML="";
-for(let i=1;i<=n;i++){
-let p=document.createElement("div");
-p.className="pod bg-purple-500/20 px-4 py-2 rounded";
-p.innerText="Pod "+i;
-pods.appendChild(p);
-}
-}
-
-scale();
-setInterval(scale,4000);
-</script>
 
 </body>
 </html>
