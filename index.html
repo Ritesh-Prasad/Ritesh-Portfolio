@@ -1,539 +1,181 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritesh Prasad | AWS Cloud & DevOps Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    //unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    //cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'shimmer': 'shimmer 1.5s linear infinite',
-                        'bounce-gentle': 'bounce 3s infinite',
-                    },
-                    keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } },
-                        glow: { '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.4)' }, '100%': { boxShadow: '0 0 40px rgba(147, 51, 234, 0.5)' } },
-                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        * { font-family: 'Inter', sans-serif; font-weight: 400; }
-        body { 
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 40%, #16213e 100%);
-            line-height: 1.6; 
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        .glass-morphism { 
-            backdrop-filter: blur(16px); 
-            background: rgba(255,255,255,0.06); 
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4);
-        }
-        .profile-img {
-            width: 180px; height: 180px;
-            object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);
-        }
-        .profile-img-hover {
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .profile-img-hover:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3), 0 0 0 1px rgba(255,255,255,0.2);
-        }
-        .section-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .hero-container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-        h1, h2, h3 { font-weight: 700; line-height: 1.2; }
-        .card-hover { 
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .card-hover:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.5);
-        }
-        .btn-primary { 
-            background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover { 
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
-        }
-        .text-gradient { 
-            background: linear-gradient(135deg, #3b82f6, #9333ea, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        @media (max-width: 768px) {
-            .section-container { padding: 0 20px; }
-            .hero-container { padding: 0 20px; }
-            .profile-img { width: 140px; height: 140px; }
-            .card-hover:hover, .profile-img-hover:hover { transform: translateY(-4px) scale(1.02); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ritesh Prasad | DevOps Engineer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+body {
+  background: linear-gradient(135deg, #0f172a, #020617);
+}
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+</style>
 </head>
-<body class="text-white">
 
-    <!-- Navigation -->
-    <nav class="glass-morphism fixed top-0 w-full z-50 backdrop-blur-md border-b border-white/10 py-4">
-        <div class="nav-container flex items-center justify-between">
-            <a href="#home" class="text-2xl font-black text-gradient flex items-center">
-                <img src="ritesh-profile.jpg" alt="Ritesh Prasad" class="w-10 h-10 rounded-full mr-3 shadow-lg">
-                RP
-            </a>
-            <div class="hidden lg:flex items-center space-x-8">
-                <a href="#home" class="text-sm font-semibold hover:text-blue-400 px-3 py-2 rounded-lg transition-colors">Home</a>
-                <a href="#about" class="text-sm font-semibold hover:text-purple-400 px-3 py-2 rounded-lg transition-colors">About</a>
-                <a href="#skills" class="text-sm font-semibold hover:text-emerald-400 px-3 py-2 rounded-lg transition-colors">Skills</a>
-                <a href="#architecture" class="text-sm font-semibold hover:text-orange-400 px-3 py-2 rounded-lg transition-colors">Architecture</a>
-                <a href="#projects" class="text-sm font-semibold hover:text-blue-400 px-3 py-2 rounded-lg transition-colors">Projects</a>
-                <a href="#contact" class="text-sm font-semibold hover:text-pink-400 px-3 py-2 rounded-lg transition-colors">Contact</a>
-            </div>
-            <a href="Ritesh_Prasad_Cloud_DevOps_Engineer.pdf" download 
-               class="glass-morphism px-6 py-2 rounded-xl text-sm font-semibold border border-white/20 hover:bg-white/10 transition-all">
-                <i class="fas fa-download mr-2"></i>Resume
-            </a>
-        </div>
-    </nav>
+<body class="text-white font-sans">
 
-    <!-- Hero Section with Profile Photo -->
-    <section id="home" class="min-h-screen flex items-center pt-24">
-        <div class="hero-container">
-            <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto" data-aos="fade-up">
-                <!-- Profile Photo -->
-                <div class="text-center lg:text-left mb-12 lg:mb-0" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="inline-block">
-                        <img src="ritesh-profile.jpg" 
-                             alt="Ritesh Prasad - AWS Cloud & DevOps Engineer" 
-                             class="profile-img profile-img-hover rounded-3xl mx-auto lg:mx-0 shadow-2xl animate-float"
-                             loading="lazy">
-                        <div class="mt-6 text-center lg:text-left">
-                            <span class="inline-block bg-gradient-to-r from-blue-500/20 to-purple-500/20 px-6 py-2 rounded-full border border-white/20 text-sm font-semibold">
-                                <i class="fas fa-certificate mr-2 text-emerald-400"></i>Production DevOps Engineer
-                            </span>
-                        </div>
-                    </div>
-                </div>
+<!-- NAVBAR -->
+<nav class="fixed w-full z-50 bg-black/30 backdrop-blur-lg border-b border-gray-800">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<h1 class="text-xl font-bold text-blue-400">Ritesh.dev</h1>
+<div class="space-x-6 hidden md:flex">
+<a href="#about" class="hover:text-blue-400">About</a>
+<a href="#skills" class="hover:text-blue-400">Skills</a>
+<a href="#projects" class="hover:text-blue-400">Projects</a>
+<a href="#architecture" class="hover:text-blue-400">Architecture</a>
+<a href="#contact" class="hover:text-blue-400">Contact</a>
+</div>
+</div>
+</nav>
 
-                <!-- Hero Content -->
-                <div data-aos="fade-left" data-aos-delay="400">
-                    <h1 class="text-5xl lg:text-7xl font-black mb-6 leading-tight text-white">Ritesh Prasad</h1>
-                    <p class="text-xl lg:text-3xl font-semibold text-slate-200 mb-8">
-                        <span class="text-gradient font-black">AWS Cloud & DevOps Engineer</span>
-                    </p>
-                    <p class="text-lg lg:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
-                        Architecting <strong>production-grade infrastructure</strong> with Terraform IaC, EKS clusters & CI/CD pipelines 
-                        delivering <span class="text-emerald-400 font-bold">99.9% uptime</span> & <span class="text-orange-400 font-bold">60% faster deployments</span>
-                    </p>
-                    <div class="flex flex-col lg:flex-row gap-6 max-w-2xl">
-                        <a href="#contact" class="btn-primary text-white px-10 py-5 rounded-2xl font-bold text-lg lg:text-xl shadow-2xl">
-                            <i class="fas fa-rocket mr-3"></i>Hire Me
-                        </a>
-                        <a href="#projects" class="glass-morphism px-10 py-5 rounded-2xl font-bold text-lg lg:text-xl border border-white/20 hover:bg-white/10">
-                            <i class="fab fa-github mr-3"></i>Live Projects
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="h-screen flex items-center justify-center text-center relative">
+<div data-aos="fade-up">
+<h1 class="text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+Ritesh Prasad
+</h1>
+<p class="text-xl text-gray-300 mb-4">
+AWS Cloud & DevOps Engineer
+</p>
+<p class="max-w-xl mx-auto text-gray-400 mb-8">
+Designing scalable cloud infrastructure, automating CI/CD pipelines, and deploying production-grade Kubernetes applications.
+</p>
 
-    <!-- About Section with Photo Context -->
-    <section id="about" class="py-28">
-        <div class="section-container">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-6xl font-black text-white mb-6">About Me</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
-                <div data-aos="fade-right">
-                    <img src="ritesh-profile.jpg" 
-                         alt="Ritesh Prasad Professional Photo" 
-                         class="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-3xl shadow-2xl mx-auto lg:mx-0 profile-img-hover animate-float"
-                         loading="lazy">
-                </div>
-                <div data-aos="fade-left" data-aos-delay="200">
-                    <p class="text-xl lg:text-2xl text-slate-200 leading-relaxed mb-8 max-w-2xl">
-                        <strong>Production AWS DevOps Engineer</strong> specializing in enterprise-grade infrastructure automation. 
-                        Deployed CI/CD pipelines reducing deployment times by <strong>60%</strong> while maintaining <strong>99.9% uptime</strong>.
-                    </p>
-                    <p class="text-lg text-slate-300 mb-8 max-w-2xl">
-                        Expert in <strong>AWS EKS, Terraform Cloud, Jenkins pipelines, Docker containerization</strong> & comprehensive monitoring stacks. 
-                        Passionate about building scalable, secure infrastructure that handles production workloads.
-                    </p>
-                    <div class="flex gap-4 flex-wrap">
-                        <span class="glass-morphism px-6 py-3 rounded-xl font-semibold bg-blue-500/10 border border-blue-500/30 hover:bg-blue-500/20">
-                            AWS Certified
-                        </span>
-                        <span class="glass-morphism px-6 py-3 rounded-xl font-semibold bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20">
-                            EKS Specialist
-                        </span>
-                        <span class="glass-morphism px-6 py-3 rounded-xl font-semibold bg-orange-500/10 border border-orange-500/30 hover:bg-orange-500/20">
-                            Terraform Pro
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="space-x-4">
+<a href="#contact" class="bg-blue-500 px-6 py-3 rounded-lg hover:scale-105 transition">Hire Me</a>
+<a href="#projects" class="border px-6 py-3 rounded-lg hover:bg-gray-800 transition">Projects</a>
+<a href="#" class="bg-purple-500 px-6 py-3 rounded-lg hover:scale-105 transition">Resume</a>
+</div>
+</div>
+</section>
 
-    <!-- COMPLETE SKILLS SECTION - ALL FROM RESUME -->
-    <section id="skills" class="py-28">
-        <div class="section-container">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-6xl font-black text-white mb-6">Complete Tech Stack</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-emerald-400 mx-auto rounded-full"></div>
-                <p class="text-xl text-slate-300 mt-4 max-w-3xl mx-auto">Production-ready skills from AWS infrastructure to full-stack DevOps</p>
-            </div>
+<!-- ABOUT -->
+<section id="about" class="py-20 max-w-6xl mx-auto px-6">
+<h2 class="text-4xl font-bold mb-6">About Me</h2>
+<p class="text-gray-400 leading-relaxed text-lg">
+Cloud & DevOps Engineer specializing in AWS, Kubernetes, and Infrastructure as Code. 
+Built automated CI/CD pipelines reducing deployment time by 60% and deployed scalable applications on EKS. 
+Passionate about automation, system reliability, and production-grade infrastructure.
+</p>
+</section>
 
-            <!-- Cloud Platforms -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                <div class="glass-morphism p-6 lg:p-8 rounded-2xl text-center card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-cloud text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Cloud Platforms</h3>
-                    <div class="space-y-2 text-sm">
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">AWS</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Azure</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">GCP</span>
-                    </div>
-                </div>
+<!-- SKILLS -->
+<section id="skills" class="py-20">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-4xl font-bold mb-10">Tech Stack</h2>
 
-                <!-- Containerization & Orchestration -->
-                <div class="glass-morphism p-6 lg:p-8 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="150">
-                    <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fab fa-docker text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Containers</h3>
-                    <div class="space-y-2 text-sm">
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Docker</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Kubernetes</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Docker Swarm</span>
-                    </div>
-                </div>
+<div class="grid md:grid-cols-3 gap-8">
 
-                <!-- IaC & Configuration -->
-                <div class="glass-morphism p-6 lg:p-8 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-cube text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Infrastructure</h3>
-                    <div class="space-y-2 text-sm">
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Terraform</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Terraform Cloud</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Ansible</span>
-                    </div>
-                </div>
+<div class="glass p-6 rounded-2xl hover:scale-105 transition">
+<h3 class="text-blue-400 text-xl mb-3">Cloud</h3>
+<p>AWS, Azure, GCP</p>
+</div>
 
-                <!-- CI/CD Tools -->
-                <div class="glass-morphism p-6 lg:p-8 rounded-2xl text-center card-hover" data-aos="fade-up" data-aos-delay="250">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-sync-alt text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">CI/CD</h3>
-                    <div class="space-y-2 text-sm">
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Jenkins</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">GitHub Actions</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">ArgoCD</span>
-                        <span class="block bg-white/5 px-3 py-2 rounded-lg">Maven</span>
-                    </div>
-                </div>
-            </div>
+<div class="glass p-6 rounded-2xl hover:scale-105 transition">
+<h3 class="text-blue-400 text-xl mb-3">DevOps</h3>
+<p>Docker, Kubernetes, Terraform, Ansible</p>
+</div>
 
-            <!-- Additional Skills Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="300">
-                <!-- Web & App Servers -->
-                <div class="glass-morphism p-6 rounded-2xl card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-server text-orange-400 mr-3"></i>Web Servers
-                    </h3>
-                    <div class="grid grid-cols-3 gap-2 text-xs">
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Apache</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Nginx</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Tomcat</span>
-                    </div>
-                </div>
+<div class="glass p-6 rounded-2xl hover:scale-105 transition">
+<h3 class="text-blue-400 text-xl mb-3">CI/CD</h3>
+<p>Jenkins, GitHub Actions, ArgoCD</p>
+</div>
 
-                <!-- Programming -->
-                <div class="glass-morphism p-6 rounded-2xl card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-code text-yellow-400 mr-3"></i>Programming
-                    </h3>
-                    <div class="grid grid-cols-3 gap-2 text-xs">
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Python</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">JavaScript</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">HTML/CSS</span>
-                    </div>
-                </div>
+<div class="glass p-6 rounded-2xl hover:scale-105 transition">
+<h3 class="text-blue-400 text-xl mb-3">Monitoring</h3>
+<p>Prometheus, Grafana</p>
+</div>
 
-                <!-- Security -->
-                <div class="glass-morphism p-6 rounded-2xl card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-shield-alt text-red-400 mr-3"></i>Security
-                    </h3>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Trivy</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">SonarQube</span>
-                    </div>
-                </div>
+<div class="glass p-6 rounded-2xl hover:scale-105 transition">
+<h3 class="text-blue-400 text-xl mb-3">Security</h3>
+<p>Trivy, SonarQube</p>
+</div>
 
-                <!-- Databases -->
-                <div class="glass-morphism p-6 rounded-2xl card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-database text-indigo-400 mr-3"></i>Databases
-                    </h3>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">MySQL</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">AWS RDS</span>
-                    </div>
-                </div>
+<div class="glass p-6 rounded-2xl hover:scale-105 transition">
+<h3 class="text-blue-400 text-xl mb-3">Programming</h3>
+<p>Python, JavaScript</p>
+</div>
 
-                <!-- Monitoring -->
-                <div class="glass-morphism p-6 rounded-2xl card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-chart-line text-purple-400 mr-3"></i>Monitoring
-                    </h3>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Prometheus</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Grafana</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">CloudWatch</span>
-                    </div>
-                </div>
+</div>
+</div>
+</section>
 
-                <!-- Other Tools -->
-                <div class="glass-morphism p-6 rounded-2xl card-hover">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-tools text-slate-400 mr-3"></i>Tools
-                    </h3>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Nexus</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Slack</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">Git</span>
-                        <span class="bg-white/5 px-3 py-2 rounded-lg text-center">GitHub</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PROJECTS -->
+<section id="projects" class="py-20 max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-bold mb-12">Featured Projects</h2>
 
-    <!-- AWS DevOps Architecture Section -->
-    <section id="architecture" class="py-28 bg-gradient-to-b from-slate-900/50 to-transparent">
-        <div class="section-container">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-6xl font-black text-white mb-6">AWS Architecture Mastery</h2>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">Production-grade infrastructure patterns deployed at enterprise scale</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- CI/CD Pipeline Architecture -->
-                <div class="glass-morphism p-8 lg:p-10 rounded-3xl card-hover group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                        <i class="fas fa-sync-alt text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 text-center">CI/CD Pipeline</h3>
-                    <p class="text-slate-300 text-sm lg:text-base mb-6 text-center leading-relaxed">
-                        Jenkins → SonarQube → Trivy → Docker Hub → EKS<br>
-                        <span class="text-emerald-400 font-bold">60% faster deployments</span>
-                    </p>
-                </div>
+<div class="grid md:grid-cols-2 gap-10">
 
-                <!-- EKS Cluster Architecture -->
-                <div class="glass-morphism p-8 lg:p-10 rounded-3xl card-hover group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                        <i class="fas fa-layer-group text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 text-center">EKS Cluster</h3>
-                    <p class="text-slate-300 text-sm lg:text-base mb-6 text-center leading-relaxed">
-                        Namespaces → RBAC → Multi-container Pods → PV/PVC →<br>
-                        <span class="text-emerald-400 font-bold">Prometheus + Grafana</span>
-                    </p>
-                </div>
+<div class="glass p-8 rounded-2xl hover:scale-105 transition">
+<h3 class="text-2xl font-bold mb-3">CI/CD Pipeline Automation</h3>
+<p class="text-gray-400 mb-4">
+Built Jenkins pipeline integrating Git, Maven, SonarQube, and Docker.
+</p>
+<p class="text-blue-400">Impact: Reduced deployment time by 60%</p>
+</div>
 
-                <!-- Terraform IaC Architecture -->
-                <div class="glass-morphism p-8 lg:p-10 rounded-3xl card-hover group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                        <i class="fas fa-cube text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 text-center">Terraform IaC</h3>
-                    <p class="text-slate-300 text-sm lg:text-base mb-6 text-center leading-relaxed">
-                        VPC → Public/Private Subnets → NAT Gateway → EC2 → RDS →<br>
-                        <span class="text-emerald-400 font-bold">100% automated</span>
-                    </p>
-                </div>
+<div class="glass p-8 rounded-2xl hover:scale-105 transition">
+<h3 class="text-2xl font-bold mb-3">Kubernetes on AWS EKS</h3>
+<p class="text-gray-400 mb-4">
+Deployed scalable applications with RBAC, monitoring & storage.
+</p>
+<p class="text-blue-400">Impact: High availability & scalability</p>
+</div>
 
-                <!-- Monitoring Stack -->
-                <div class="glass-morphism p-8 lg:p-10 rounded-3xl card-hover group md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                        <i class="fas fa-chart-line text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 text-center">Production Monitoring</h3>
-                    <p class="text-slate-300 text-sm lg:text-base mb-6 text-center leading-relaxed">
-                        Prometheus → Grafana Dashboards → CloudWatch →<br>
-                        <span class="text-emerald-400 font-bold">99.9% uptime SLA</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-28 bg-gradient-to-b from-slate-900/30 to-transparent">
-        <div class="section-container">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-6xl font-black text-white mb-6">Production Projects</h2>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">AWS infrastructure deployed for enterprise-grade reliability</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                <div class="glass-morphism p-10 rounded-3xl card-hover group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl mb-8 flex items-center justify-center group-hover:scale-105 transition-transform">
-                        <i class="fas fa-sync-alt text-5xl text-white/30 group-hover:text-blue-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">AWS CI/CD Pipeline</h3>
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        Complete Jenkins pipeline with SonarQube, Trivy scanning & Docker automation
-                    </p>
-                    <div class="flex gap-2 mb-6">
-                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full font-medium">Jenkins</span>
-                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs rounded-full font-medium">Docker</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="text-2xl font-bold text-emerald-400">60% Faster</div>
-                        <a href="#" class="glass-morphism px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/10">View Code</a>
-                    </div>
-                </div>
-                <div class="glass-morphism p-10 rounded-3xl card-hover group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl mb-8 flex items-center justify-center group-hover:scale-105 transition-transform">
-                        <i class="fas fa-layer-group text-5xl text-white/30 group-hover:text-emerald-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">EKS Production Cluster</h3>
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        Kubernetes deployment with RBAC, storage & Prometheus monitoring stack
-                    </p>
-                    <div class="flex gap-2 mb-6">
-                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs rounded-full font-medium">EKS</span>
-                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full font-medium">Prometheus</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="text-2xl font-bold text-emerald-400">99.9% Uptime</div>
-                        <a href="#" class="glass-morphism px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/10">View Code</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <a href="https://raghavpackers.com/" target="_blank" class="glass-morphism p-8 rounded-2xl hover:bg-white/10 transition-all group card-hover" data-aos="fade-up">
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400">Raghav Packers</h3>
-                    <p class="text-slate-300 text-sm mb-4">Production website - SEO optimized</p>
-                    <div class="text-blue-400 font-semibold flex items-center">
-                        <i class="fas fa-external-link-alt mr-2"></i>LIVE
-                    </div>
-                </a>
-                <a href="https://dhmpackersandmovers.com/" target="_blank" class="glass-morphism p-8 rounded-2xl hover:bg-white/10 transition-all group card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400">DHM Packers</h3>
-                    <p class="text-slate-300 text-sm mb-4">Responsive business platform</p>
-                    <div class="text-emerald-400 font-semibold flex items-center">
-                        <i class="fas fa-external-link-alt mr-2"></i>LIVE
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+<!-- DEVOPS ARCHITECTURE -->
+<section id="architecture" class="py-20 bg-black/40">
+<div class="max-w-6xl mx-auto px-6 text-center">
+<h2 class="text-4xl font-bold mb-10">DevOps Architecture</h2>
 
-    <!-- Experience & Education -->
-    <section class="py-28 bg-gradient-to-b from-slate-900/50 to-transparent">
-        <div class="section-container max-w-4xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">Experience</h2>
-            </div>
-            <div class="space-y-12" data-aos="fade-up">
-                <div class="glass-morphism p-10 rounded-3xl relative">
-                    <div class="absolute left-0 w-1 h-full bg-gradient-to-b from-blue-400 to-purple-500 -ml-6"></div>
-                    <div class="flex items-start gap-8 pl-12">
-                        <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 mt-2">
-                            <i class="fas fa-globe text-xl"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-4 mb-4">
-                                <h3 class="text-2xl font-bold text-white">Web Development Intern</h3>
-                                <span class="px-4 py-2 bg-emerald-500/20 text-emerald-300 text-sm rounded-xl font-semibold">Sep-Dec 2025</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-slate-200 mb-6">Groveus</h4>
-                            <ul class="space-y-3 text-slate-300">
-                                ><i class="fas fa-check-circle text-emerald-400 mr-3"></i>Built responsive client websites (HTML/CSS/JS/Bootstrap)</li>
-                                ><i class="fas fa-check-circle text-emerald-400 mr-3"></i>Optimized SEO & assets - <strong>20% faster load times</strong></li>
-                                ><i class="fas fa-check-circle text-emerald-400 mr-3"></i>Managed production MySQL databases</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-morphism p-10 rounded-3xl relative">
-                    <div class="absolute left-0 w-1 h-full bg-gradient-to-b from-orange-400 to-red-500 -ml-6"></div>
-                    <div class="flex items-start gap-8 pl-12">
-                        <div class="w-20 h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0 mt-2">
-                            <i class="fas fa-laptop-code text-xl"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-4 mb-4">
-                                <h3 class="text-2xl font-bold text-white">Web Development Intern</h3>
-                                <span class="px-4 py-2 bg-orange-500/20 text-orange-300 text-sm rounded-xl font-semibold">Jan-Apr 2024</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-slate-200 mb-6">CodTrees</h4>
-                            <ul class="space-y-3 text-slate-300">
-                                ><i class="fas fa-check-circle text-orange-400 mr-3"></i>Developed responsive front-end interfaces</li>
-                                ><i class="fas fa-check-circle text-orange-400 mr-3"></i>Managed MySQL databases for production systems</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="grid md:grid-cols-3 gap-8">
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-28">
-        <div class="section-container max-w-4xl mx-auto text-center">
-            <div class="mb-16" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-6xl font-black text-white mb-6">Let's Build Scalable Infrastructure</h2>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    Ready to deploy production-grade AWS infrastructure with 99.9% uptime guarantees?
-                </p>
-            </div>
-            <div class="glass-morphism p-12 rounded-3xl mb-12" data-aos="fade-up" data-aos-delay="100">
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="group p-6 hover:bg-white/10 rounded-2xl transition-all">
-                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
-                            <i class="fas fa-envelope text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-lg mb-2">Email</h4>
-                        <a href="mailto:ritesh010996@gmail.com" class="text-slate-300 hover:text-blue-400 font-semibold block">ritesh010996@gmail.com</a>
-                    </div>
-                    <div class="group p-6 hover:bg-white/10 rounded-2xl transition-all">
-                        <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
-                            <i class="fas fa-phone text-2xl"></i>
-                        </div>
-                        <h4 class="font-bold text-lg mb-2">Phone</h4>
-                        <a href="tel:+917031218049" class="text-slate-300 hover:text-emerald-400 font-semibold block">+91 70312 18049</a>
-                    </div>
-                    <div class="group p-6 hover:bg-white/10 rounded-2xl transition-all">
-                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center
+<div class="glass p-6 rounded-xl">
+<h3 class="text-blue-400 text-xl mb-2">CI/CD Pipeline</h3>
+<p>Git → Jenkins → Build → Test → Docker → Deploy</p>
+</div>
+
+<div class="glass p-6 rounded-xl">
+<h3 class="text-blue-400 text-xl mb-2">Kubernetes</h3>
+<p>Pods → Services → Ingress → Monitoring</p>
+</div>
+
+<div class="glass p-6 rounded-xl">
+<h3 class="text-blue-400 text-xl mb-2">AWS Infra</h3>
+<p>VPC → EC2 → EKS → S3 → RDS</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 text-center">
+<h2 class="text-4xl font-bold mb-6">Let’s Work Together</h2>
+<p class="text-gray-400 mb-4">ritesh010996@gmail.com</p>
+
+<div class="space-x-4">
+<a href="#" class="bg-blue-500 px-6 py-3 rounded-lg hover:scale-105">Hire Me</a>
+<a href="#" class="border px-6 py-3 rounded-lg hover:bg-gray-800">GitHub</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 text-gray-500">
+© 2026 Ritesh Prasad | AWS DevOps Engineer
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000 });</script>
+
+</body>
+</html>
