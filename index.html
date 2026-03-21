@@ -31,9 +31,15 @@
       border-image: linear-gradient(120deg, #22d3ee, #a855f7) 1;
     }
     .section-title {
-      @apply text-2xl md:text-3xl font-semibold tracking-tight;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
     }
-    /* Custom scroll bar (desktop) */
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 1.875rem;
+      }
+    }
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -83,8 +89,8 @@
     <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-16 md:space-y-24">
 
       <!-- Hero -->
-      <section id="hero" class="grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
-        <div class="space-y-6">
+      <section id="hero" class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6" data-aos="fade-up">
           <p class="inline-flex items-center gap-2 rounded-full bg-slate-900/70 border border-slate-700 px-3 py-1 text-[11px] md:text-xs text-slate-300">
             <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Available for Cloud & DevOps opportunities
@@ -121,17 +127,41 @@
             </div>
           </div>
         </div>
-        <div class="md:justify-self-end w-full max-w-md mx-auto">
+
+        <!-- Hero right with profile photo -->
+        <div class="md:justify-self-end w-full max-w-md mx-auto" data-aos="fade-up">
           <div class="glass rounded-3xl p-5 md:p-6 shadow-2xl shadow-cyan-500/10 border border-slate-700/70 relative overflow-hidden">
             <div class="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-cyan-500/20 blur-3xl"></div>
             <div class="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-violet-500/10 blur-3xl"></div>
+
+            <!-- Profile photo block -->
+            <div class="flex items-center gap-4 mb-4">
+              <div class="relative">
+                <div class="h-20 w-20 rounded-2xl bg-gradient-to-tr from-cyan-400 via-violet-500 to-fuchsia-500 p-[2px]">
+                  <!-- Change ritesh.jpg to your actual file name if needed -->
+                  <img
+                    src="ritesh.jpg"
+                    alt="Ritesh Prasad"
+                    class="h-full w-full rounded-2xl object-cover"
+                  />
+                </div>
+                <span class="absolute -bottom-1 -right-1 h-4 w-4 rounded-full bg-emerald-400 border-2 border-slate-900"></span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-sm font-semibold">Ritesh Prasad</span>
+                <span class="text-xs text-slate-400">Cloud & DevOps Engineer</span>
+                <span class="text-[11px] text-slate-500 mt-1">
+                  AWS · Terraform · Kubernetes · CI/CD
+                </span>
+              </div>
+            </div>
 
             <div class="flex items-center justify-between mb-4">
               <div>
                 <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Primary Stack</p>
                 <p class="mt-1 text-sm font-medium">AWS · Kubernetes · Terraform · Jenkins</p>
               </div>
-              <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-300 border border-emerald-500/40">
+            <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-300 border border-emerald-500/40">
                 <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>Production Ready</span>
               </span>
@@ -214,7 +244,6 @@
           <span class="h-px flex-1 bg-gradient-to-r from-slate-700 via-slate-600 to-transparent"></span>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <!-- Cloud -->
           <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
             <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
               <i data-feather="cloud" class="w-4 h-4 text-sky-400"></i>
@@ -230,7 +259,6 @@
             </div>
           </div>
 
-          <!-- DevOps / CI-CD -->
           <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
             <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
               <i data-feather="git-branch" class="w-4 h-4 text-cyan-400"></i>
@@ -248,7 +276,6 @@
             </div>
           </div>
 
-          <!-- Containers -->
           <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
             <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
               <i data-feather="box" class="w-4 h-4 text-violet-400"></i>
@@ -263,7 +290,6 @@
             </div>
           </div>
 
-          <!-- IaC & Config -->
           <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
             <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
               <i data-feather="code" class="w-4 h-4 text-emerald-400"></i>
@@ -278,7 +304,6 @@
             </div>
           </div>
 
-          <!-- Monitoring & Security -->
           <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
             <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
               <i data-feather="shield" class="w-4 h-4 text-rose-400"></i>
@@ -294,7 +319,6 @@
             </div>
           </div>
 
-          <!-- Programming & Web -->
           <div class="glass rounded-2xl p-5 border-l-2 gradient-border">
             <h3 class="text-sm font-semibold mb-3 flex items-center gap-2">
               <i data-feather="cpu" class="w-4 h-4 text-amber-400"></i>
@@ -320,7 +344,64 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-5">
-          <!-- Project 1: CI/CD -->
+          <!-- Netflix Clone DevOps -->
+          <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-red-500/15 transition">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-semibold">
+                  Netflix Clone – End‑to‑End DevOps Deployment
+                </h3>
+                <span class="text-[11px] rounded-full bg-red-500/10 text-red-300 border border-red-500/40 px-2 py-0.5">
+                  Full DevOps Lifecycle
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 mb-3">
+                Delivered a Netflix Clone application on AWS with complete automation from infrastructure provisioning and configuration management to CI/CD, deployment, and monitoring.
+              </p>
+
+              <p class="text-[11px] font-semibold text-slate-200 mb-1">Infrastructure as Code (Terraform + HCP)</p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Wrote Terraform code to provision AWS infrastructure and pushed it to GitHub for version control.</li>
+                <li>Integrated the repository with HCP Terraform to run remote plan and apply, centralizing state and execution.</li>
+                <li>Provisioned EC2 instances for <span class="font-semibold">jenkins-ansible</span>, <span class="font-semibold">Tomcat-server1</span>, and <span class="font-semibold">Tomcat-server2</span> as CI/CD and application layers.</li>
+              </ul>
+
+              <p class="text-[11px] font-semibold text-slate-200 mb-1">Configuration Management (Ansible)</p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Generated secure SSH access using <span class="font-semibold">ssh-keygen</span> and distributed keys to target nodes.</li>
+                <li>Automated Tomcat installation and application server setup on both Tomcat servers using Ansible playbooks.</li>
+              </ul>
+
+              <p class="text-[11px] font-semibold text-slate-200 mb-1">CI/CD Pipeline (Jenkins + Maven + S3 + Ansible)</p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Designed a Jenkins Declarative Pipeline that pulled source from Git, built the app with Maven, and generated <span class="font-semibold">.war</span> artifacts.</li>
+                <li>Stored build artifacts in AWS S3 to enable artifact versioning and promotion across environments.</li>
+                <li>Used the Jenkins Ansible plugin to install Tomcat and deploy the Netflix Clone artifact to both Tomcat servers automatically.</li>
+                <li>Implemented Jenkins Choice Parameters to dynamically select Git branches and target deployment servers.</li>
+              </ul>
+
+              <p class="text-[11px] font-semibold text-slate-200 mb-1">Monitoring & Observability (Prometheus + Grafana)</p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Integrated Prometheus to collect CPU, system, and application metrics from the EC2 instances.</li>
+                <li>Built Grafana dashboards to visualize real-time application health and infrastructure performance.</li>
+              </ul>
+
+              <p class="text-[11px] text-slate-400">
+                Result: Netflix Clone deployed to two Tomcat servers through a fully automated CI/CD pipeline with infrastructure as code, configuration management, and live monitoring across the stack.
+              </p>
+            </div>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px]">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Terraform · HCP Terraform</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">AWS · EC2 · S3</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Ansible</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Jenkins · Maven</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Prometheus · Grafana</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CI/CD Pipeline -->
           <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/15 transition">
             <div>
               <div class="flex items-center justify-between mb-2">
@@ -352,7 +433,7 @@
             </div>
           </article>
 
-          <!-- Project 2: Kubernetes -->
+          <!-- Kubernetes -->
           <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/15 transition">
             <div>
               <div class="flex items-center justify-between mb-2">
@@ -383,7 +464,7 @@
             </div>
           </article>
 
-          <!-- Project 3: Terraform AWS Infra -->
+          <!-- Terraform AWS Infra -->
           <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/15 transition">
             <div>
               <div class="flex items-center justify-between mb-2">
@@ -412,7 +493,39 @@
             </div>
           </article>
 
-          <!-- Project 4: AWS VPC Architecture -->
+          <!-- AWS EC2 Automation -->
+          <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/15 transition">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-semibold">AWS EC2 Instance Scheduling with Lambda & EventBridge</h3>
+                <span class="text-[11px] rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/40 px-2 py-0.5">
+                  AWS Automation
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 mb-3">
+                Designed and implemented an automated EC2 lifecycle management solution on AWS to optimize resource utilization and reduce cloud costs through serverless scheduling and orchestration.
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mb-3">
+                <li>Built three Lambda functions (<span class="font-semibold">creating_ec2</span>, <span class="font-semibold">start_ec2</span>, <span class="font-semibold">stop_ec2</span>) to programmatically provision, start, and stop the EC2 instance <span class="font-semibold">ritesh-ec2</span>.</li>
+                <li>Wrote and deployed end-to-end Python code to manage the EC2 lifecycle via AWS SDK, ensuring reliable and repeatable automation.</li>
+                <li>Configured Amazon EventBridge scheduled rules to automatically start and stop the instance at defined times, eliminating manual operations.</li>
+                <li>Improved cloud cost efficiency by running compute only during required windows, demonstrating practical cost-optimization on AWS.</li>
+              </ul>
+              <p class="text-[11px] text-slate-400">
+                Architecture: EventBridge schedules → Lambda functions (create/start/stop) → EC2 instance (<span class="font-semibold">ritesh-ec2</span>) → CloudWatch for logging and operational visibility.
+              </p>
+            </div>
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px]">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">AWS Lambda</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Amazon EventBridge</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">EC2</span>
+                <span class="px-2 py-1 rounded-full bg-slate-900/80 border border-slate-700">Python · Boto3</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- AWS VPC Architecture -->
           <article class="glass rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-sky-500/15 transition">
             <div>
               <div class="flex items-center justify-between mb-2">
@@ -498,7 +611,6 @@
         </div>
 
         <div class="space-y-4">
-          <!-- Groveus -->
           <article class="glass rounded-2xl p-5 border border-slate-700/80">
             <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
               <div>
@@ -516,7 +628,6 @@
             </ul>
           </article>
 
-          <!-- CodTrees -->
           <article class="glass rounded-2xl p-5 border border-slate-700/80">
             <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
               <div>
@@ -613,7 +724,6 @@
             </div>
           </div>
 
-          <!-- Contact form (static) -->
           <div class="glass rounded-2xl p-5 border border-slate-700/80">
             <h3 class="text-sm font-semibold mb-3">Quick Message</h3>
             <form class="space-y-3 text-xs">
