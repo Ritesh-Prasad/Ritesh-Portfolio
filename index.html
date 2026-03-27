@@ -126,7 +126,6 @@
     }
     .badge-cta i { color: #22c55e; }
 
-    /* Hamburger */
     .nav-right {
       display: flex;
       align-items: center;
@@ -437,7 +436,7 @@
       background: rgba(15,23,42,0.9);
     }
 
-    /* Simple card (less card-heavy) */
+    /* Soft card */
     .card-soft {
       background: radial-gradient(circle at top left, rgba(15,23,42,0.85), rgba(15,23,42,0.98));
       border-radius: 16px;
@@ -446,7 +445,7 @@
       box-shadow: 0 16px 40px rgba(2,6,23,0.95);
     }
 
-    /* About layout */
+    /* About */
     .about-layout {
       display: flex;
       flex-wrap: wrap;
@@ -510,7 +509,7 @@
     /* Projects */
     .projects-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
       gap: 1.4rem;
     }
 
@@ -581,6 +580,7 @@
     .project-list-simple {
       display: grid;
       gap: 0.9rem;
+      margin-top: 1.4rem;
     }
 
     .project-simple-title {
@@ -1039,11 +1039,11 @@
         <span class="pill"><i class="fa-solid fa-cloud-arrow-up"></i> Highlighted DevOps Work</span>
       </h2>
       <p class="section-subtitle">
-        High-impact DevOps projects (CI/CD, Kubernetes, Terraform) first, followed by live client web projects. [file:1]
+        Two featured DevOps projects (CI/CD and Kubernetes) first, followed by Terraform and live client web projects. [file:1]
       </p>
 
       <div class="projects-grid">
-        <!-- Featured DevOps Project -->
+        <!-- Featured DevOps Project 1 -->
         <div class="project-featured">
           <div class="project-featured-label">Featured DevOps Project</div>
           <div class="project-title">End-to-End CI/CD Pipeline Implementation</div>
@@ -1067,97 +1067,100 @@
           </div>
         </div>
 
-        <!-- Other Projects -->
-        <div class="project-list-simple">
-          <div>
-            <div class="project-simple-title">Kubernetes Application Deployment</div>
-            <p class="project-text">
-              Deployed containerized applications on Kubernetes clusters including AWS EKS with strong focus on isolation, resource management, and observability. [file:1]
-            </p>
-            <ul class="project-list">
-              <li>Configured namespaces, services, RBAC, multi-container pods, PV/PVC storage, and resource quotas.</li>
-              <li>Implemented monitoring and alerting via Prometheus and Grafana.</li>
-            </ul>
-            <div class="project-tags">
-              <span class="project-tag">Kubernetes</span>
-              <span class="project-tag">AWS EKS</span>
-              <span class="project-tag">Prometheus</span>
-              <span class="project-tag">Grafana</span>
-              <span class="project-tag">RBAC</span>
-              <span class="project-tag">PV / PVC</span>
-            </div>
+        <!-- Featured DevOps Project 2 -->
+        <div class="project-featured">
+          <div class="project-featured-label">Featured DevOps Project</div>
+          <div class="project-title">Kubernetes Application Deployment</div>
+          <div class="project-role">DevOps Project – Kubernetes, AWS EKS, Prometheus, Grafana</div>
+          <p class="project-text">
+            Deployed containerized applications on Kubernetes clusters, including AWS EKS, with focus on isolation, resource management, and observability. [file:1]
+          </p>
+          <ul class="project-list">
+            <li>Configured namespaces, services, RBAC, multi-container pods, PV/PVC storage, and resource quotas.</li>
+            <li>Implemented monitoring and alerting using Prometheus and Grafana for cluster and application metrics.</li>
+          </ul>
+          <div class="project-tags">
+            <span class="project-tag">Kubernetes</span>
+            <span class="project-tag">AWS EKS</span>
+            <span class="project-tag">Prometheus</span>
+            <span class="project-tag">Grafana</span>
+            <span class="project-tag">RBAC</span>
+            <span class="project-tag">PV / PVC</span>
           </div>
+        </div>
+      </div>
 
-          <div>
-            <div class="project-simple-title">AWS Infrastructure Automation using Terraform</div>
-            <p class="project-text">
-              Automated provisioning of AWS resources with Infrastructure as Code, enabling consistent and reusable environments. [file:1]
-            </p>
-            <ul class="project-list">
-              <li>Managed VPC, EC2, S3, IAM, and RDS using Terraform modules.</li>
-              <li>Used remote state for safe collaboration and controlled updates.</li>
-            </ul>
-            <div class="project-tags">
-              <span class="project-tag">Terraform</span>
-              <span class="project-tag">AWS VPC</span>
-              <span class="project-tag">EC2</span>
-              <span class="project-tag">S3</span>
-              <span class="project-tag">IAM</span>
-              <span class="project-tag">RDS</span>
-            </div>
+      <!-- Remaining Projects -->
+      <div class="project-list-simple">
+        <div>
+          <div class="project-simple-title">AWS Infrastructure Automation using Terraform</div>
+          <p class="project-text">
+            Automated provisioning of AWS resources with Infrastructure as Code, enabling consistent and reusable environments. [file:1]
+          </p>
+          <ul class="project-list">
+            <li>Managed VPC, EC2, S3, IAM, and RDS using Terraform modules.</li>
+            <li>Used remote state for safe collaboration and controlled updates.</li>
+          </ul>
+          <div class="project-tags">
+            <span class="project-tag">Terraform</span>
+            <span class="project-tag">AWS VPC</span>
+            <span class="project-tag">EC2</span>
+            <span class="project-tag">S3</span>
+            <span class="project-tag">IAM</span>
+            <span class="project-tag">RDS</span>
           </div>
+        </div>
 
-          <div>
-            <div class="project-simple-title">AWS VPC Network Architecture</div>
-            <p class="project-text">
-              Designed and implemented a secure AWS VPC architecture using Terraform, with controlled internet access. [file:1]
-            </p>
-            <ul class="project-list">
-              <li>Created public and private subnets with Internet Gateway and NAT Gateway.</li>
-              <li>Deployed EC2 instances into private subnets with restricted inbound and managed outbound access.</li>
-            </ul>
-            <div class="project-tags">
-              <span class="project-tag">AWS VPC</span>
-              <span class="project-tag">Subnets</span>
-              <span class="project-tag">Internet Gateway</span>
-              <span class="project-tag">NAT Gateway</span>
-              <span class="project-tag">Terraform</span>
-            </div>
+        <div>
+          <div class="project-simple-title">AWS VPC Network Architecture</div>
+          <p class="project-text">
+            Designed and implemented a secure AWS VPC architecture using Terraform, with controlled internet access. [file:1]
+          </p>
+          <ul class="project-list">
+            <li>Created public and private subnets with Internet Gateway and NAT Gateway.</li>
+            <li>Deployed EC2 instances into private subnets with restricted inbound and managed outbound access.</li>
+          </ul>
+          <div class="project-tags">
+            <span class="project-tag">AWS VPC</span>
+            <span class="project-tag">Subnets</span>
+            <span class="project-tag">Internet Gateway</span>
+            <span class="project-tag">NAT Gateway</span>
+            <span class="project-tag">Terraform</span>
           </div>
+        </div>
 
-          <div>
-            <div class="project-simple-title">Raghav Packers &amp; Movers Website (Live)</div>
-            <p class="project-text">
-              Fully responsive business website built during internship at Groveus, focused on SEO and performance. [file:1]
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">HTML</span>
-              <span class="project-tag">CSS</span>
-              <span class="project-tag">JavaScript</span>
-              <span class="project-tag">Bootstrap</span>
-              <span class="project-tag">SEO</span>
-            </div>
-            <a href="https://raghavpackers.com/" target="_blank" rel="noreferrer" class="project-link">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
-            </a>
+        <div>
+          <div class="project-simple-title">Raghav Packers &amp; Movers Website (Live)</div>
+          <p class="project-text">
+            Fully responsive business website built during internship at Groveus, focused on SEO and performance. [file:1]
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Bootstrap</span>
+            <span class="project-tag">SEO</span>
           </div>
+          <a href="https://raghavpackers.com/" target="_blank" rel="noreferrer" class="project-link">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
+          </a>
+        </div>
 
-          <div>
-            <div class="project-simple-title">DHM Packers &amp; Movers Website (Live)</div>
-            <p class="project-text">
-              High-performance, responsive website developed during Groveus internship to enhance client brand presence. [file:1]
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">HTML</span>
-              <span class="project-tag">CSS</span>
-              <span class="project-tag">JavaScript</span>
-              <span class="project-tag">Bootstrap</span>
-              <span class="project-tag">SEO</span>
-            </div>
-            <a href="https://dhmpackersandmovers.com/" target="_blank" rel="noreferrer" class="project-link">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
-            </a>
+        <div>
+          <div class="project-simple-title">DHM Packers &amp; Movers Website (Live)</div>
+          <p class="project-text">
+            High-performance, responsive website developed during Groveus internship to enhance client brand presence. [file:1]
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Bootstrap</span>
+            <span class="project-tag">SEO</span>
           </div>
+          <a href="https://dhmpackersandmovers.com/" target="_blank" rel="noreferrer" class="project-link">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
+          </a>
         </div>
       </div>
     </section>
