@@ -1,122 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ritesh Prasad | Elite DevOps Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ritesh Prasad | Cloud & DevOps Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b1220;--text:#e2e8f0;--card:#111827;--accent:#22c55e}
-body.light{--bg:#f8fafc;--text:#0f172a;--card:#ffffff}
+:root{--bg:#0b1220;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#22c55e;--accent2:#3b82f6}
+body.light{--bg:#f8fafc;--card:#ffffff;--text:#0f172a;--muted:#475569}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:var(--bg);color:var(--text);transition:0.4s}
-header{padding:70px;text-align:center;background:linear-gradient(135deg,#020617,#16a34a)}
-h1{font-size:3rem}
-.subtitle{color:#94a3b8;margin-top:10px}
-.links a{color:#38bdf8;margin:0 10px;text-decoration:none}
-.toggle{position:fixed;top:20px;right:20px;padding:10px 15px;border:none;background:#16a34a;color:#fff;border-radius:8px;cursor:pointer}
-.container{width:90%;max-width:1100px;margin:auto}
-.section{margin:70px 0;opacity:0;transform:translateY(40px);transition:0.8s}
-.section.show{opacity:1;transform:translateY(0)}
-.card{background:var(--card);padding:25px;margin:20px 0;border-radius:14px}
+body{background:var(--bg);color:var(--text);transition:.4s}
+.container{max-width:1100px;margin:auto;padding:20px}
+header{padding:70px 20px;text-align:center;background:linear-gradient(135deg,#020617,#1d4ed8)}
+h1{font-size:3rem;font-weight:700}
+.subtitle{color:var(--muted);margin-top:10px}
+.links a{margin:0 10px;color:#38bdf8;text-decoration:none;font-weight:500}
 .btn{display:inline-block;margin-top:15px;padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none}
-.skills span{display:inline-block;background:#1e293b;padding:10px 16px;margin:6px;border-radius:25px}
-.footer{text-align:center;padding:20px;background:#020617}
+.toggle{position:fixed;top:20px;right:20px;background:var(--accent2);color:#fff;border:none;padding:10px 15px;border-radius:8px;cursor:pointer}
+.section{margin:70px 0;opacity:0;transform:translateY(40px);transition:.7s}
+.section.show{opacity:1;transform:translateY(0)}
+h2{margin-bottom:20px;color:var(--accent2)}
+.card{background:var(--card);padding:25px;border-radius:14px;margin:15px 0;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.badge{background:#1e293b;padding:6px 10px;border-radius:6px;font-size:.8rem;margin-left:8px}
+.timeline{border-left:2px solid var(--accent2);padding-left:20px}
+.timeline .item{margin-bottom:20px}
+.skills span{display:inline-block;background:#1e293b;padding:8px 14px;margin:6px;border-radius:20px;font-size:.85rem}
+.metric{background:#1e293b;padding:15px;border-radius:10px;text-align:center}
+.footer{text-align:center;padding:20px;background:#020617;margin-top:40px}
 </style>
 </head>
 <body>
 <button class="toggle" onclick="toggleMode()">Toggle Mode</button>
+
 <header>
 <h1>Ritesh Prasad</h1>
-<p class="subtitle">Cloud & DevOps Engineer | AWS | Azure | GCP | Terraform | Kubernetes | Docker | CI/CD</p>
+<p class="subtitle">Cloud & DevOps Engineer | AWS | Kubernetes | Terraform | CI/CD</p>
 <div class="links">
 <a href="mailto:ritesh010996@gmail.com">Email</a>
 <a href="tel:7031218049">Phone</a>
 <a href="https://linkedin.com/in/ritesh-prasad-7666bb326">LinkedIn</a>
 <a href="https://github.com/Ritesh-Prasad">GitHub</a>
 </div>
+<a href="#" class="btn">Download Resume</a>
 </header>
 
 <div class="container">
 
 <section class="section">
-<h2>Profile Summary</h2>
+<h2>💡 Professional Summary</h2>
 <div class="card">
-<p>Motivated Cloud & DevOps Engineer with hands-on experience in CI/CD automation, Infrastructure as Code (Terraform), and containerized application deployment. Skilled in AWS, Docker, Kubernetes, and Jenkins. Experienced in monitoring using Prometheus & Grafana and maintaining Linux-based systems.</p>
+<p>Cloud & DevOps Engineer with hands-on experience in CI/CD pipelines, Infrastructure as Code (Terraform), Kubernetes deployments, and cloud automation. Proven ability to design scalable, highly available systems and automate end-to-end delivery pipelines.</p>
 </div>
 </section>
 
 <section class="section">
-<h2>Core Skills</h2>
+<h2>📊 Impact Metrics</h2>
+<div class="grid">
+<div class="metric"><h3>10+</h3><p>Deployments</p></div>
+<div class="metric"><h3>90%</h3><p>Automation</p></div>
+<div class="metric"><h3>High</h3><p>Availability Systems</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>🛠 Core Skills</h2>
 <div class="card skills">
 <span>AWS</span><span>Azure</span><span>GCP</span>
-<span>Docker</span><span>Kubernetes</span><span>Docker Swarm</span>
+<span>Docker</span><span>Kubernetes</span>
 <span>Terraform</span><span>Ansible</span>
-<span>Jenkins</span><span>Git</span><span>GitHub</span><span>GitHub Actions</span>
-<span>Maven</span><span>SonarQube</span><span>Trivy</span><span>ArgoCD</span>
-<span>Prometheus</span><span>Grafana</span><span>AWS CloudWatch</span>
-<span>Linux</span><span>Windows</span>
-<span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
-<span>MySQL</span><span>AWS RDS</span>
-<span>Apache</span><span>Nginx</span><span>Tomcat</span>
+<span>Jenkins</span><span>GitHub Actions</span>
+<span>Prometheus</span><span>Grafana</span>
+<span>Linux</span><span>Python</span>
 </div>
 </section>
 
 <section class="section">
-<h2>Projects</h2>
+<h2>🚀 Featured Project</h2>
 <div class="card">
-<h3>CI/CD Pipeline Implementation</h3>
-<p>• Built automated CI/CD pipeline using Jenkins, Git, and Maven</p>
-<p>• Integrated SonarQube and Trivy for quality & security</p>
-<p>• Containerized applications using Docker</p>
-</div>
-<div class="card">
-<h3>Kubernetes Application Deployment</h3>
-<p>• Deployed apps on Kubernetes clusters (EKS)</p>
-<p>• Configured RBAC, namespaces, PV/PVC, monitoring</p>
-</div>
-<div class="card">
-<h3>AWS Infrastructure using Terraform</h3>
-<p>• Provisioned VPC, EC2, S3, IAM, RDS</p>
-<p>• Used Terraform modules and remote state</p>
-</div>
-<div class="card">
-<h3>AWS VPC Architecture</h3>
-<p>• Designed public/private subnets, NAT Gateway</p>
-</div>
-<div class="card">
-<h3>Netflix Clone Deployment</h3>
-<p>• Deployed using Kubernetes with 10 replicas</p>
-<p>• NodePort (31111) & LoadBalancer used</p>
-<p>• Logs stored in AWS S3</p>
+<h3>Netflix Clone on Kubernetes <span class="badge">Production</span></h3>
+<p>• Built using Kubernetes (KOPS) with 10 replicas for high availability</p>
+<p>• Exposed via NodePort (31111) and LoadBalancer</p>
+<p>• Integrated logging with AWS S3</p>
+<p>• Demonstrates full DevOps lifecycle: build → deploy → scale → monitor</p>
+<a href="#" class="btn">View Project</a>
 </div>
 </section>
 
 <section class="section">
-<h2>Experience</h2>
+<h2>⚙️ DevOps Pipeline</h2>
 <div class="card">
-<h3>Groveus (Web Development Intern)</h3>
-<p>• Improved website performance by 20%</p>
-<p>• Developed responsive UI</p>
-<p>• Managed MySQL backend</p>
-</div>
-<div class="card">
-<h3>CodTrees (Web Development Intern)</h3>
-<p>• Built dynamic web apps</p>
-<p>• Managed database integration</p>
+<p>Developer → GitHub → Jenkins → Docker → Kubernetes → Monitoring</p>
 </div>
 </section>
 
 <section class="section">
-<h2>Education</h2>
+<h2>📂 Projects</h2>
+<div class="grid">
+<div class="card"><h3>CI/CD Pipeline</h3><p>Automated build, test, scan, deploy using Jenkins, SonarQube, Trivy.</p></div>
+<div class="card"><h3>Terraform AWS</h3><p>Provisioned cloud infra using modular IaC approach.</p></div>
+<div class="card"><h3>Kubernetes Monitoring</h3><p>Implemented monitoring using Prometheus & Grafana.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>💼 Experience</h2>
+<div class="timeline">
+<div class="item"><h4>Groveus</h4><p>Improved performance by 20%, built responsive UI.</p></div>
+<div class="item"><h4>CodTrees</h4><p>Developed dynamic applications and DB integration.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>🎓 Education</h2>
 <div class="card">
 <p>B.Tech CSE – 8.31 CGPA</p>
-<p>Diploma in Electrical Engineering – 74.2%</p>
+<p>Diploma Electrical – 74.2%</p>
 </div>
 </section>
 
 <section class="section">
-<h2>Languages</h2>
+<h2>🌐 Languages</h2>
 <div class="card">
 <p>English | Hindi | Nepali</p>
 </div>
