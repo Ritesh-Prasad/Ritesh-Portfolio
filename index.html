@@ -768,7 +768,9 @@
 
       .nav { padding-inline: 1.1rem; }
     }
-    .cert-slider-wrapper {
+
+    /* ONLY UPDATED CERT SECTION STYLES */
+.cert-slider-wrapper {
   position: relative;
   margin-top: 1rem;
 }
@@ -786,8 +788,8 @@
 }
 
 .cert-card {
-  min-width: 260px;
-  height: 160px;
+  min-width: 300px;
+  height: 220px;
   border-radius: 14px;
   overflow: hidden;
   position: relative;
@@ -795,18 +797,19 @@
   cursor: pointer;
   border: 1px solid rgba(148,163,184,0.3);
   transition: all 0.4s ease;
+  background: #020617;
 }
 
 .cert-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* FIXED */
+  background: #000;
 }
 
 .cert-card:hover {
   transform: scale(1.08);
   z-index: 5;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.9);
 }
 
 .cert-overlay {
@@ -833,6 +836,13 @@
 
 .cert-nav.left { left: -10px; }
 .cert-nav.right { right: -10px; }
+
+/* MODAL */
+#certModal {
+  display:none;
+  position:fixed;
+  top:0;
+</style>
   </style>
 </head>
 <body>
@@ -1390,56 +1400,40 @@
         </div>
       </div>
     </section>
-    <!-- CERTIFICATE SECTION -->
-<section id="certificates" style="max-width:1100px;margin:3rem auto;padding:0 1.5rem;">
-  <h2 style="font-size:1.4rem;margin-bottom:0.5rem;">Certificates</h2>
-  <p style="color:var(--muted);margin-bottom:1rem;">Professional certifications showcasing cloud and DevOps expertise.</p>
+    <section id="certificates">
+<h2>Certificates</h2>
 
-  <div class="cert-slider-wrapper">
+<div class="cert-slider-wrapper">
 
-    <button class="cert-nav left" onclick="scrollCerts(-1)">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
+<button class="cert-nav left" onclick="scrollCerts(-1)">◀</button>
 
-    <div class="cert-slider" id="certSlider">
+<div class="cert-slider" id="certSlider">
 
-      <div class="cert-card">
-        <img src="internship-certificate.jpg">
-        <div class="cert-overlay">Internship Certification</div>
-      </div>
+<div class="cert-card" onclick="openCert(this)">
+<img src="internship-certificate.jpg">
+<div class="cert-overlay">Internship</div>
+</div>
 
-      <div class="cert-card">
-        <img src="cert2.jpg">
-        <div class="cert-overlay">Azure Certification</div>
-      </div>
+<div class="cert-card" onclick="openCert(this)">
+<img src="cert2.jpg">
+<div class="cert-overlay">Azure</div>
+</div>
 
-      <div class="cert-card">
-        <img src="cert3.jpg">
-        <div class="cert-overlay">Google Cloud</div>
-      </div>
+<div class="cert-card" onclick="openCert(this)">
+<img src="cert3.jpg">
+<div class="cert-overlay">GCP</div>
+</div>
 
-      <div class="cert-card">
-        <img src="cert4.jpg">
-        <div class="cert-overlay">Terraform Associate</div>
-      </div>
+<div class="cert-card" onclick="openCert(this)">
+<img src="cert4.jpg">
+<div class="cert-overlay">Terraform</div>
+</div>
 
-      <div class="cert-card">
-        <img src="cert5.jpg">
-        <div class="cert-overlay">Docker & Kubernetes</div>
-      </div>
+</div>
 
-      <div class="cert-card">
-        <img src="cert6.jpg">
-        <div class="cert-overlay">DevOps Certification</div>
-      </div>
+<button class="cert-nav right" onclick="scrollCerts(1)">▶</button>
 
-    </div>
-
-    <button class="cert-nav right" onclick="scrollCerts(1)">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-
-  </div>
+</div>
 </section>
   </main>
 
@@ -1482,16 +1476,24 @@
         mobileMenu.style.display = 'none';
       });
     });
-    
-    /* EXISTING JS */
 
-function scrollCerts(direction) {
+    function scrollCerts(direction) {
   const slider = document.getElementById('certSlider');
-  slider.scrollBy({
-    left: direction * 300,
-    behavior: 'smooth'
-  });
+  slider.scrollBy({ left: direction * 300, behavior: 'smooth' });
 }
+
+function openCert(el) {
+  const img = el.querySelector('img').src;
+  const modal = document.getElementById('certModal');
+  const modalImg = document.getElementById('certModalImg');
+
+  modal.style.display = 'flex';
+  modalImg.src = img;
+}
+
+document.getElementById('certModal').onclick = function () {
+  this.style.display = 'none';
+};
   </script>
 </body>
 </html>
