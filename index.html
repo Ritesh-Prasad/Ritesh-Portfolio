@@ -305,12 +305,10 @@
     .btn-primary:hover {
       transform: translateY(-1px);
       box-shadow: 0 22px 45px rgba(34,197,94,0.55);
-      text-decoration: none;
     }
 
     .btn-ghost:hover {
       background: rgba(15,23,42,0.9);
-      text-decoration: none;
     }
 
     .hero-meta {
@@ -427,7 +425,6 @@
       gap: 0.7rem;
       font-size: 0.78rem;
       margin-bottom: 0.6rem;
-      flex-wrap: wrap;
     }
 
     .hero-card-meta-label {
@@ -809,7 +806,6 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      flex-wrap: wrap;
     }
 
     .contact-list i {
@@ -838,6 +834,18 @@
     }
 
     footer i { color: #f97316; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Certificate Modal */
     .certificate-modal {
@@ -915,18 +923,6 @@
       background: #0f172a;
     }
 
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* Responsive */
     @media (max-width: 960px) {
       .nav-links { display: none; }
@@ -939,11 +935,8 @@
       }
       .hero-right { order: -1; }
 
-      .projects-grid,
-      .edu-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .projects-grid { grid-template-columns: minmax(0, 1fr); }
+      .edu-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -984,10 +977,6 @@
       }
 
       .nav { padding-inline: 1.1rem; }
-
-      .pill {
-        margin-left: 0;
-      }
     }
 
     @media (max-width: 540px) {
@@ -1002,7 +991,9 @@
 
       .certificate-actions .btn-primary,
       .certificate-actions .btn-ghost,
-      .certificate-modal-header .btn-primary {
+      .certificate-modal-header .btn-primary,
+      .hero-actions .btn-primary,
+      .hero-actions .btn-ghost {
         justify-content: center;
         width: 100%;
       }
@@ -1012,6 +1003,10 @@
         right: 0.7rem;
         width: 38px;
         height: 38px;
+      }
+
+      .pill {
+        margin-left: 0;
       }
     }
   </style>
@@ -1451,12 +1446,12 @@
           <button
             class="certificate-image-btn"
             type="button"
-            data-cert-src="certificate-1.jpg"
-            data-cert-title="AWS Cloud Certificate"
-            data-cert-download="AWS-Cloud-Certificate.jpg"
-            aria-label="Open AWS Cloud Certificate"
+            data-cert-src="internship-certificate.jpg"
+            data-cert-title="internship certificate"
+            data-cert-download="internship-certificate.jpg"
+            aria-label="Open Certificate"
           >
-            <img src="internship-certificate.jpg" alt="AWS Cloud Certificate" class="certificate-image" />
+            <img src="internship-certificate.jpg" alt=" Certificate" class="certificate-image" />
             <span class="certificate-overlay">
               <i class="fa-solid fa-expand"></i>
               <span>View Certificate</span>
@@ -1466,7 +1461,7 @@
           <div class="certificate-content">
             <div class="certificate-top">
               <div>
-                <h3 class="certificate-title">internship certificate</h3>
+                <h3 class="certificate-title"> Certificate</h3>
                 <p class="certificate-issuer">Issued by Groveus Informatics Pvt Ltd</p>
               </div>
               <span class="certificate-badge">Professional</span>
@@ -1707,8 +1702,10 @@
   </div>
 
   <script>
+    // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const onScroll = () => {
       const triggerBottom = window.innerHeight * 0.85;
@@ -1722,15 +1719,16 @@
     window.addEventListener('scroll', onScroll);
     onScroll();
 
+    // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
-
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       const isOpen = hamburger.classList.contains('active');
       mobileMenu.style.display = isOpen ? 'flex' : 'none';
     });
 
+    // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -1738,6 +1736,7 @@
       });
     });
 
+    // Certificate modal
     const certificateModal = document.getElementById('certificateModal');
     const certificateModalImage = document.getElementById('certificateModalImage');
     const certificateModalTitle = document.getElementById('certificateModalTitle');
