@@ -768,81 +768,6 @@
 
       .nav { padding-inline: 1.1rem; }
     }
-
-    /* ONLY UPDATED CERT SECTION STYLES */
-.cert-slider-wrapper {
-  position: relative;
-  margin-top: 1rem;
-}
-
-.cert-slider {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 0.5rem;
-}
-
-.cert-slider::-webkit-scrollbar {
-  display: none;
-}
-
-.cert-card {
-  min-width: 300px;
-  height: 220px;
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
-  cursor: pointer;
-  border: 1px solid rgba(148,163,184,0.3);
-  transition: all 0.4s ease;
-  background: #020617;
-}
-
-.cert-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* FIXED */
-  background: #000;
-}
-
-.cert-card:hover {
-  transform: scale(1.08);
-  z-index: 5;
-}
-
-.cert-overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 0.6rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-  font-size: 0.8rem;
-}
-
-.cert-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  cursor: pointer;
-}
-
-.cert-nav.left { left: -10px; }
-.cert-nav.right { right: -10px; }
-
-/* MODAL */
-#certModal {
-  display:none;
-  position:fixed;
-  top:0;
-</style>
   </style>
 </head>
 <body>
@@ -1400,41 +1325,6 @@
         </div>
       </div>
     </section>
-    <section id="certificates">
-<h2>Certificates</h2>
-
-<div class="cert-slider-wrapper">
-
-<button class="cert-nav left" onclick="scrollCerts(-1)">◀</button>
-
-<div class="cert-slider" id="certSlider">
-
-<div class="cert-card" onclick="openCert(this)">
-<img src="internship-certificate.jpg">
-<div class="cert-overlay">Internship</div>
-</div>
-
-<div class="cert-card" onclick="openCert(this)">
-<img src="cert2.jpg">
-<div class="cert-overlay">Azure</div>
-</div>
-
-<div class="cert-card" onclick="openCert(this)">
-<img src="cert3.jpg">
-<div class="cert-overlay">GCP</div>
-</div>
-
-<div class="cert-card" onclick="openCert(this)">
-<img src="cert4.jpg">
-<div class="cert-overlay">Terraform</div>
-</div>
-
-</div>
-
-<button class="cert-nav right" onclick="scrollCerts(1)">▶</button>
-
-</div>
-</section>
   </main>
 
   <footer>
@@ -1476,24 +1366,6 @@
         mobileMenu.style.display = 'none';
       });
     });
-
-    function scrollCerts(direction) {
-  const slider = document.getElementById('certSlider');
-  slider.scrollBy({ left: direction * 300, behavior: 'smooth' });
-}
-
-function openCert(el) {
-  const img = el.querySelector('img').src;
-  const modal = document.getElementById('certModal');
-  const modalImg = document.getElementById('certModalImg');
-
-  modal.style.display = 'flex';
-  modalImg.src = img;
-}
-
-document.getElementById('certModal').onclick = function () {
-  this.style.display = 'none';
-};
   </script>
 </body>
 </html>
