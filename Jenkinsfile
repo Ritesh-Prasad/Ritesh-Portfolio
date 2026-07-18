@@ -5,8 +5,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/Ritesh-Prasad/Ritesh-Portfolio.git'
+                git 'https://github.com/Ritesh-Prasad/Ritesh-Portfolio.git'
             }
         }
 
