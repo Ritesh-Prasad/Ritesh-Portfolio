@@ -86,7 +86,7 @@
       }
 
       .nav {
-        max-width: 1120px;
+        max-width: 1173px;
         margin: 0 auto;
         padding: 0.9rem 1.5rem;
         display: flex;
@@ -1179,4 +1179,766 @@
 
 .company-link:hover .company-name {
     text-decoration: underline;
+}
+
+
+.nav-logo a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+/* =========================================
+   RITESH CLOUDOPS - YOUTUBE SECTION
+========================================= */
+
+.youtube-section {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.youtube-header {
+  margin-bottom: 1.4rem;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.youtube-container {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(320px, 0.85fr);
+
+  gap: 1.5rem;
+
+  align-items: stretch;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.youtube-content {
+  position: relative;
+
+  padding: 1.6rem;
+
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(56, 189, 248, 0.16),
+      rgba(15, 23, 42, 0.98) 55%
+    );
+
+  border: 1px solid rgba(56, 189, 248, 0.35);
+
+  box-shadow:
+    0 20px 50px rgba(2, 6, 23, 0.9);
+
+  overflow: hidden;
+}
+
+
+/* Decorative glow */
+
+.youtube-content::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -90px;
+  right: -90px;
+
+  background: rgba(34, 197, 94, 0.12);
+
+  border-radius: 50%;
+
+  filter: blur(40px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   CHANNEL LABEL
+========================================= */
+
+.youtube-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  padding: 0.3rem 0.75rem;
+
+  border-radius: 999px;
+
+  background: rgba(239, 68, 68, 0.1);
+
+  border: 1px solid rgba(239, 68, 68, 0.35);
+
+  color: #ffeaea;
+
+  font-size: 0.72rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  margin-bottom: 0.8rem;
+}
+
+
+.youtube-label i {
+  font-size: 0.95rem;
+
+  color: #ef4444;
+}
+
+
+/* =========================================
+   LEFT TITLE
+========================================= */
+
+.youtube-content h3 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+
+  line-height: 1.25;
+
+  margin-bottom: 0.8rem;
+
+  max-width: 600px;
+}
+
+
+.youtube-content h3 span {
+  background:
+    linear-gradient(
+      to right,
+      #38bdf8,
+      #22c55e
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* =========================================
+   LEFT DESCRIPTION
+========================================= */
+
+.youtube-content p {
+  font-size: 0.88rem;
+
+  color: var(--muted);
+
+  max-width: 700px;
+
+  margin-bottom: 0.8rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   STUDY WITH ME BRAND
+========================================= */
+
+.withme {
+  color: #ff3030;
+}
+
+
+/* =========================================
+   DEVOPS TOPICS
+========================================= */
+
+.youtube-topics {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 0.55rem;
+
+  margin: 1.2rem 0 1.3rem;
+}
+
+
+.youtube-topic {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  padding: 0.55rem 0.65rem;
+
+  border-radius: 10px;
+
+  background: rgba(15, 23, 42, 0.75);
+
+  border: 1px solid rgba(148, 163, 184, 0.28);
+
+  color: #dbeafe;
+
+  font-size: 0.72rem;
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+
+.youtube-topic:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(56, 189, 248, 0.7);
+
+  background: rgba(30, 41, 59, 0.9);
+}
+
+
+.youtube-topic i {
+  color: var(--accent);
+
+  font-size: 0.85rem;
+
+  width: 16px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   VISIT CHANNEL BUTTON
+========================================= */
+
+.youtube-subscribe-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  padding: 0.65rem 1.1rem;
+
+  border-radius: 999px;
+
+  background: #ef4444;
+
+  border: 1px solid #ef4444;
+
+  color: white;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 10px 30px rgba(239, 68, 68, 0.25);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+
+.youtube-subscribe-btn:hover {
+  transform: translateY(-2px);
+
+  background: #dc2626;
+
+  box-shadow:
+    0 16px 35px rgba(239, 68, 68, 0.4);
+
+  text-decoration: none;
+}
+
+
+.youtube-subscribe-btn i:first-child {
+  font-size: 1rem;
+}
+
+
+/* =========================================
+   RIGHT YOUTUBE CARD WRAPPER
+========================================= */
+
+.youtube-card-wrapper {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 0;
+}
+
+
+/* =========================================
+   RIGHT YOUTUBE CARD
+
+   IMPORTANT:
+   FLEX-DIRECTION COLUMN
+   MAKES ICON TOP + CENTER
+========================================= */
+
+.youtube-card {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100%;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(239, 68, 68, 0.45);
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(239, 68, 68, 0.2),
+      rgba(15, 23, 42, 0.98) 55%
+    );
+
+  box-shadow:
+    0 20px 50px rgba(2, 6, 23, 0.95);
+
+  /* IMPORTANT */
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  text-align: center;
+
+  padding: 2.5rem 1.4rem 2rem;
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+
+.youtube-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(239, 68, 68, 0.8);
+}
+
+
+/* =========================================
+   CARD RED GLOW
+========================================= */
+
+.youtube-card-glow {
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  top: -100px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(239, 68, 68, 0.2);
+
+  border-radius: 50%;
+
+  filter: blur(50px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   YOUTUBE ICON
+   TOP + CENTER
+========================================= */
+
+.youtube-icon {
+  position: relative;
+
+  width: 78px;
+  height: 78px;
+
+  /* CENTER */
+
+  margin: 0 auto 1.2rem;
+
+  display: grid;
+
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 22px;
+
+  background: #ef4444;
+
+  color: white;
+
+  font-size: 2.5rem;
+
+  box-shadow:
+    0 15px 35px rgba(239, 68, 68, 0.35);
+
+  animation:
+    youtubeFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes youtubeFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.youtube-card-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.youtube-small-title {
+  display: block;
+
+  color: #9ca3af;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 0.16em;
+
+  margin-bottom: 0.45rem;
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.youtube-card h4 {
+  font-size: 2rem;
+
+  line-height: 1.05;
+
+  margin-bottom: 0.45rem;
+}
+
+
+/* StudyWithMe red */
+
+.youtube-card h4 .withme {
+  color: #ef4444;
+}
+
+
+/* DevOps Engineer */
+
+.devops-title {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   CARD DESCRIPTION
+========================================= */
+
+.youtube-card p {
+  color: var(--muted);
+
+  font-size: 0.8rem;
+
+  margin-bottom: 1.1rem;
+}
+
+
+/* =========================================
+   TECHNOLOGY TAGS
+========================================= */
+
+.youtube-tools {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 0.4rem;
+
+  margin-bottom: 1.2rem;
+
+  max-width: 310px;
+}
+
+
+.youtube-tools span {
+  padding: 0.25rem 0.55rem;
+
+  border-radius: 999px;
+
+  background: rgba(15, 23, 42, 0.9);
+
+  border: 1px solid rgba(148, 163, 184, 0.35);
+
+  color: #dbeafe;
+
+  font-size: 0.68rem;
+
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+
+.youtube-tools span:hover {
+  border-color: rgba(239, 68, 68, 0.7);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   WATCH BUTTON
+========================================= */
+
+.youtube-watch-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  padding: 0.6rem 1rem;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(239, 68, 68, 0.5);
+
+  background: rgba(239, 68, 68, 0.08);
+
+  color: #fca5a5;
+
+  font-size: 0.78rem;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+
+.youtube-watch-btn:hover {
+  background: #ef4444;
+
+  color: white;
+
+  transform: translateY(-2px);
+
+  text-decoration: none;
+}
+
+
+/* =========================================
+   RESPONSIVE - 960PX
+========================================= */
+
+@media (max-width: 960px) {
+
+  .youtube-container {
+    grid-template-columns: 1fr;
+  }
+
+
+  .youtube-card-wrapper {
+    min-height: 360px;
+  }
+
+
+  .youtube-card {
+    min-height: 360px;
+  }
+
+
+  .youtube-topics {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - 768PX
+========================================= */
+
+@media (max-width: 768px) {
+
+  .youtube-container {
+    gap: 1rem;
+  }
+
+
+  .youtube-content {
+    padding: 1.3rem;
+  }
+
+
+  .youtube-topics {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .youtube-card-wrapper {
+    min-height: 330px;
+  }
+
+
+  .youtube-card {
+    min-height: 330px;
+
+    padding:
+      2.2rem
+      1.2rem
+      1.8rem;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - 540PX
+========================================= */
+
+@media (max-width: 540px) {
+
+  .youtube-content {
+    padding: 1.1rem;
+  }
+
+
+  .youtube-content h3 {
+    font-size: 1.45rem;
+  }
+
+
+  .youtube-topics {
+    grid-template-columns: 1fr;
+  }
+
+
+  .youtube-topic {
+    padding: 0.6rem 0.7rem;
+  }
+
+
+  .youtube-subscribe-btn {
+    width: 100%;
+  }
+
+
+  .youtube-card {
+    min-height: 350px;
+
+    padding:
+      1.8rem
+      1rem
+      1.5rem;
+  }
+
+
+  .youtube-icon {
+    width: 70px;
+
+    height: 70px;
+
+    font-size: 2.2rem;
+
+    border-radius: 20px;
+
+    margin-bottom: 1rem;
+  }
+
+
+  .youtube-card h4 {
+    font-size: 1.7rem;
+  }
+
+
+  .youtube-small-title {
+    font-size: 0.62rem;
+  }
+
 }
