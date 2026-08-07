@@ -1124,6 +1124,7 @@
         .profile-photo-wrapper {
           width: 130px;
           height: 130px;
+          margin-top: -25px;
         }
 
         .nav {
