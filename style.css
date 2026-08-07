@@ -1702,8 +1702,13 @@
 /* DevOps Engineer */
 
 .devops-title {
-  color: #ffffff;
+
+  background: linear-gradient(to right, #38bdf8, #22c55e);
+   webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
+
 
 
 /* =========================================
@@ -1785,7 +1790,7 @@
 
   background: rgba(239, 68, 68, 0.08);
 
-  color: #fca5a5;
+  color: #ffffff;
 
   font-size: 0.78rem;
 
@@ -1942,4 +1947,8 @@
     font-size: 0.62rem;
   }
 
+}
+
+.studyWithMe{
+  color: white;
 }
