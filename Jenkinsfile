@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Code Checkout') {
-            steps {
-                git 'https://github.com/Ritesh-Prasad/Ritesh-Portfolio.git'
-            }
-        }
-
         stage('Deploy Code') {
             steps {
                 sh '''
@@ -27,4 +21,3 @@ pipeline {
         }
     }
 }
-
